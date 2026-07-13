@@ -1,16 +1,49 @@
-# React + Vite
+# MatchSphere
+We'll create a platform which matches people based on goals and interests..
+bulit folder steucture first like pages components and all others
+create navbar...then lnding pageand then imported navbar in landing page and then updated app.jsx to render landing page
+then create simple hero.jsx without css with right side empty as we gonna use orbit compeonent there
+create orbit compeontn without css as we gonna write it later and render orbit compeonnent in hero page
+now we gonna create and visuslaize the entire heor page structure and then will dsign sctrion by section
+now created trustats componmenets with css with a new react thing which is like:
+<div>
+    <h2>16</h2>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<div>
+    <h2>2-Layer</h2>
+</div>
 
-Currently, two official plugins are available:
+<div>
+    <h2>Realtime</h2>
+</div>const stats = [
+  { number: "16", title: "Match Categories" },
+  { number: "2-Layer", title: "Purpose + Compatibility" },
+  { number: "Realtime", title: "Chat & Notifications" },
+];
+stats.map(...)
+This is exactly how you'll render:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Match cards
+Chats
+Notifications
+User profiles
+Requests
+Categories
 
-## React Compiler
+throughout MatchSphere.
+This section is easy and helps you learn an important React concept: rendering repeated UI from an array using .map() instead of hardcoding each card.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+That will prepare you for building the Discovery page later, where you'll render many match cards the same way.
+installed react i cons
+created feature comp and added in landing page
+created category strip and added in landingpage
+create how it woks and added in landing page
+create cta and added in landing page
+create footer and added in landing page
+installed react framer motion
+updated jsx and css code for redsigning
+create animatedsection components and wrapped every componenet of landing page within it
 
-## Expanding the Oxlint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+

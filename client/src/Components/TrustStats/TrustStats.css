@@ -1,0 +1,57 @@
+.trust{
+
+    padding:90px 7%;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+.trust-card{
+
+    padding:35px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.trust-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#7C9CFF;
+
+}
+
+.trust-card h2{
+
+    font-size:54px;
+
+    margin-bottom:15px;
+
+    background:linear-gradient(90deg,#7C9CFF,#5CEBD0);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.trust-card p{
+
+    color:#A5ABD0;
+
+}

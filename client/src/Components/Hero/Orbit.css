@@ -1,0 +1,307 @@
+.orbit-container{
+
+    width:550px;
+
+    height:550px;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.center-glow{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:radial-gradient(circle,#8BA6FF,#5E63FF);
+
+    box-shadow:
+    0 0 60px rgba(124,156,255,.7),
+    0 0 130px rgba(92,235,208,.25);
+
+    animation:pulse 3s infinite ease-in-out;
+
+}
+
+.center-core{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:#0B1026;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    border:2px solid rgba(255,255,255,.08);
+
+}
+
+.ring{
+
+    position:absolute;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+}
+
+.ring1{
+
+    width:240px;
+
+    height:240px;
+
+    animation:spin 12s linear infinite;
+
+}
+
+.ring2{
+
+    width:360px;
+
+    height:360px;
+
+    animation:spinReverse 18s linear infinite;
+
+}
+
+.ring3{
+
+    width:490px;
+
+    height:490px;
+
+    animation:spin 25s linear infinite;
+
+}
+
+.planet{
+
+    position:absolute;
+
+    top:-20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:12px 22px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.3);
+
+}
+
+.p1{
+
+    background:linear-gradient(135deg,#5CEBD0,#2DA8FF);
+
+}
+
+.p2{
+
+    background:linear-gradient(135deg,#7C9CFF,#735BFF);
+
+}
+
+.p3{
+
+    background:linear-gradient(135deg,#FF8A65,#FF4FA2);
+
+}
+
+@keyframes spin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes spinReverse{
+
+from{
+
+transform:rotate(360deg);
+
+}
+
+to{
+
+transform:rotate(0deg);
+
+}
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@media(max-width:1100px){
+
+.orbit-container{
+
+width:420px;
+
+height:420px;
+
+}
+
+.ring3{
+
+width:380px;
+
+height:380px;
+
+}
+
+.ring2{
+
+width:280px;
+
+height:280px;
+
+}
+
+.ring1{
+
+width:180px;
+
+height:180px;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.orbit-container{
+
+width:320px;
+
+height:320px;
+
+}
+
+.ring3{
+
+width:300px;
+
+height:300px;
+
+}
+
+.ring2{
+
+width:220px;
+
+height:220px;
+
+}
+
+.ring1{
+
+width:140px;
+
+height:140px;
+
+}
+
+.center-glow{
+
+width:120px;
+
+height:120px;
+
+}
+
+.center-core{
+
+width:90px;
+
+height:90px;
+
+font-size:18px;
+
+}
+
+.planet{
+
+font-size:12px;
+
+padding:8px 16px;
+
+}
+
+}

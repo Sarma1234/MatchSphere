@@ -1,0 +1,118 @@
+.landing-page{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.bg-circle{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(130px);
+
+    z-index:-1;
+
+    animation:float 18s ease-in-out infinite alternate;
+
+}
+
+.circle1{
+
+    width:450px;
+
+    height:450px;
+
+    background:#6F7CFF;
+
+    left:-120px;
+
+    top:120px;
+
+}
+
+.circle2{
+
+    width:350px;
+
+    height:350px;
+
+    background:#7C4DFF;
+
+    right:-80px;
+
+    top:500px;
+
+    animation-duration:22s;
+
+}
+
+.circle3{
+
+    width:380px;
+
+    height:380px;
+
+    background:#33D8C4;
+
+    left:35%;
+
+    bottom:-100px;
+
+    animation-duration:25s;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0) translateX(0);
+
+}
+
+50%{
+
+transform:translateY(-80px) translateX(40px);
+
+}
+
+100%{
+
+transform:translateY(60px) translateX(-40px);
+
+}
+
+}
+.mouse-glow{
+
+    position:fixed;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(124,156,255,.18),
+    transparent 70%);
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    filter:blur(40px);
+
+    z-index:-1;
+
+    transition:
+
+    left .08s linear,
+
+    top .08s linear;
+
+}

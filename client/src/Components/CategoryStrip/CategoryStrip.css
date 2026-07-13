@@ -1,0 +1,57 @@
+.category-strip{
+
+    padding:120px 7%;
+
+    text-align:center;
+
+}
+
+.category-title{
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+    color:#7C9CFF;
+
+    margin-bottom:40px;
+
+}
+
+.category-list{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:22px;
+
+}
+
+.category-chip{
+
+    padding:18px 32px;
+
+    border-radius:60px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.category-chip:hover{
+
+    background:linear-gradient(135deg,#7C9CFF,#5CEBD0);
+
+    transform:translateY(-6px);
+
+}

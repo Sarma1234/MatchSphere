@@ -1,0 +1,221 @@
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:140px 7% 80px;
+
+    gap:60px;
+
+}
+
+.hero-left{
+
+    flex:1;
+
+    max-width:650px;
+
+}
+
+.hero-tag{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50px;
+
+    color:#7C9CFF;
+
+    font-size:14px;
+
+    margin-bottom:28px;
+
+    backdrop-filter:blur(20px);
+
+}
+
+.hero-left h1{
+
+    font-size:72px;
+
+    line-height:1.08;
+
+    font-weight:800;
+
+    margin-bottom:28px;
+
+    letter-spacing:-2px;
+
+}
+
+.hero-left h1 span{
+
+    background:linear-gradient(90deg,#7C9CFF,#5CEBD0);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero-description{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#A5ABD0;
+
+    max-width:580px;
+
+    margin-bottom:45px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.hero-buttons button{
+
+    padding:18px 34px;
+
+    border:none;
+
+    border-radius:60px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.hero-buttons button:first-child{
+
+    background:linear-gradient(135deg,#7C9CFF,#6B63FF);
+
+    color:white;
+
+    box-shadow:0 15px 45px rgba(124,156,255,.35);
+
+}
+
+.hero-buttons button:first-child:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.hero-buttons .secondary{
+
+    background:transparent;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:white;
+
+}
+
+.hero-buttons .secondary:hover{
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.hero-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+@media(max-width:1100px){
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+padding-top:170px;
+
+}
+
+.hero-left{
+
+max-width:100%;
+
+}
+
+.hero-description{
+
+margin:auto;
+
+margin-bottom:40px;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.hero-left h1{
+
+font-size:56px;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.hero-left h1{
+
+font-size:42px;
+
+}
+
+.hero-description{
+
+font-size:16px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.hero-buttons button{
+
+width:100%;
+
+}
+
+}
