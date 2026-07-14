@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+
+    --bg: #0A0D24;
+    --glass: rgba(255, 255, 255, .06);
+    --border: rgba(255, 255, 255, .12);
+
+    --text: #EEF0FB;
+    --muted: #9AA1C9;
+
+    --blue: #7C9CFF;
+    --teal: #5CEBD0;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+
+}
+
+.auth-page {
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.bg-glow {
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    opacity: .35;
+
+}
+
+.glow1 {
+
+    background: #4965ff;
+
+    top: -220px;
+    left: -200px;
+
+}
+
+.glow2 {
+
+    background: #2bd7b8;
+
+    right: -200px;
+    bottom: -200px;
+
+}
+
+.glass {
+
+    backdrop-filter: blur(20px);
+
+    background: var(--glass);
+
+    border: 1px solid var(--border);
+
+}
+
+.auth-shell {
+
+    width: 1100px;
+
+    display: flex;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    z-index: 5;
+
+}
+
+.auth-left {
+
+    width: 45%;
+
+    padding: 60px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    background:
+        linear-gradient(160deg,
+            rgba(124, 156, 255, .16),
+            rgba(92, 235, 208, .08));
+
+}
+
+.eyebrow {
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    color: var(--teal);
+
+    margin-bottom: 15px;
+
+}
+
+.auth-left h1 {
+
+    font-family: 'Space Grotesk';
+
+    font-size: 52px;
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+
+}
+
+.subtitle {
+
+    line-height: 1.8;
+
+    color: var(--muted);
+
+    max-width: 380px;
+
+}
+
+.auth-form {
+
+    width: 55%;
+
+    padding: 60px;
+
+}
+
+.tabs {
+
+    display: flex;
+
+    gap: 5px;
+
+    background: rgba(255, 255, 255, .04);
+
+    padding: 5px;
+
+    border-radius: 999px;
+
+    width: max-content;
+
+    margin-bottom: 35px;
+
+}
+
+.tabs button {
+
+    padding: 12px 28px;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    border-radius: 999px;
+
+    color: var(--muted);
+
+    font-weight: 600;
+
+}
+
+.tabs .active {
+
+    background: var(--teal);
+
+    color: #000;
+
+}
+
+.field {
+
+    margin-bottom: 20px;
+
+}
+
+.field label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    color: var(--muted);
+
+}
+
+.field input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255, 255, 255, .03);
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+
+}
+
+.field input:focus {
+
+    border-color: var(--blue);
+
+}
+
+.primary-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+
+        linear-gradient(135deg,
+            var(--blue),
+            #5a6ff0);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+}
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    margin: 28px 0;
+
+    color: #777;
+
+}
+
+.divider::before,
+.divider::after {
+
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, .1);
+
+}
+
+.divider span {
+
+    padding: 0 14px;
+
+}
+
+.google-btn {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, .05);
+
+    border: 1px solid var(--border);
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+@media(max-width:900px) {
+
+    .auth-shell {
+
+        flex-direction: column;
+
+    }
+
+    .auth-left,
+    .auth-form {
+
+        width: 100%;
+
+    }
+
+    .auth-left {
+
+        min-height: 300px;
+
+    }
+
+    .auth-left h1 {
+
+        font-size: 38px;
+
+    }
+
+}
