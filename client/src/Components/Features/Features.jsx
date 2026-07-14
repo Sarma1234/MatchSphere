@@ -1,4 +1,4 @@
-import "./Feature.css";
+import "./Features.css";
 
 import { FaBullseye } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
