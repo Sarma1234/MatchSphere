@@ -1,0 +1,205 @@
+.topbar {
+
+    position: fixed;
+
+    top: 20px;
+    left: 300px;
+    right: 20px;
+
+    height: 90px;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, .06);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    z-index: 90;
+
+}
+
+.topbar-left h2 {
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-bottom: 4px;
+
+    color: #EEF0FB;
+
+}
+
+.topbar-left p {
+
+    color: #9AA1C9;
+
+    font-size: 14px;
+
+}
+
+.topbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+}
+
+.icon-btn {
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    background: rgba(255,255,255,.05);
+
+    color: #EEF0FB;
+
+    transition: .25s ease;
+
+}
+
+.icon-btn:hover {
+
+    background: rgba(255,255,255,.10);
+
+    transform: translateY(-2px);
+
+}
+
+.notification-btn {
+
+    position: relative;
+
+}
+
+.notification-dot {
+
+    position: absolute;
+
+    top: 11px;
+    right: 11px;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #5CEBD0;
+
+    border: 2px solid #0A0D24;
+
+}
+
+.topbar-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-left: 8px;
+
+}
+
+.topbar-avatar {
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #7C9CFF,
+        #5CEBD0
+    );
+
+    color: white;
+
+    font-weight: 700;
+
+    font-size: 16px;
+
+}
+
+.topbar-user h4 {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 2px;
+
+}
+
+.topbar-user p {
+
+    color: #9AA1C9;
+
+    font-size: 13px;
+
+}
+
+@media(max-width:900px){
+
+    .topbar{
+
+        left:20px;
+        right:20px;
+
+        height:80px;
+
+        padding:0 20px;
+
+    }
+
+    .topbar-left h2{
+
+        font-size:22px;
+
+    }
+
+    .topbar-left p{
+
+        display:none;
+
+    }
+
+    .topbar-user{
+
+        display:none;
+
+    }
+
+}

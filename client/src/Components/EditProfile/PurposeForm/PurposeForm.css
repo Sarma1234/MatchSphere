@@ -1,0 +1,103 @@
+.purpose-form
+{
+    padding: 32px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.28);
+}
+
+.purpose-form-grid
+{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 22px;
+
+    margin-top: 28px;
+}
+
+.input-group
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group label
+{
+    color: rgba(255,255,255,.82);
+
+    font-size: .95rem;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea
+{
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.05);
+
+    color: #FFFFFF;
+
+    outline: none;
+
+    font-family: "Inter", sans-serif;
+
+    transition: .3s;
+}
+
+.input-group textarea
+{
+    resize: vertical;
+
+    min-height: 150px;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder
+{
+    color: rgba(255,255,255,.40);
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus
+{
+    border-color: #7C9CFF;
+
+    box-shadow: 0 0 0 4px rgba(124,156,255,.15);
+}
+
+.full-width
+{
+    grid-column: span 2;
+}
+
+@media (max-width:768px)
+{
+    .purpose-form
+    {
+        padding: 24px;
+    }
+
+    .purpose-form-grid
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width
+    {
+        grid-column: span 1;
+    }
+}

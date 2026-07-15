@@ -1,0 +1,28 @@
+.action-buttons {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.pass-btn,
+.connect-btn {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    pointer-events: auto;
+}
+
+.pass-btn {
+    left: 40px;
+    bottom: 40px;
+    background: red;
+}
+
+.connect-btn {
+    right: 40px;
+    bottom: 40px;
+    background: lime;
+}

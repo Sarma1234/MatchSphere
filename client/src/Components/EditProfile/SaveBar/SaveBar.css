@@ -1,0 +1,90 @@
+.save-bar
+{
+    position: fixed;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 18px;
+
+    padding: 16px 18px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 22px;
+
+    background: rgba(10,13,36,.82);
+    backdrop-filter: blur(22px);
+
+    box-shadow: 0 20px 45px rgba(0,0,0,.35);
+
+    z-index: 1000;
+}
+
+.save-bar button
+{
+    border: none;
+    border-radius: 16px;
+
+    padding: 15px 28px;
+
+    font-family: "Inter", sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.draft-btn
+{
+    background: rgba(255,255,255,.08);
+
+    color: #FFFFFF;
+}
+
+.draft-btn:hover
+{
+    background: rgba(255,255,255,.14);
+}
+
+.continue-btn
+{
+    background: linear-gradient(
+        135deg,
+        #7C9CFF,
+        #5CEBD0
+    );
+
+    color: #FFFFFF;
+
+    box-shadow: 0 10px 25px rgba(124,156,255,.30);
+}
+
+.continue-btn:hover
+{
+    transform: translateY(-2px);
+
+    box-shadow: 0 14px 30px rgba(124,156,255,.40);
+}
+
+@media (max-width:768px)
+{
+    .save-bar
+    {
+        left: 20px;
+        right: 20px;
+
+        transform: none;
+
+        flex-direction: column;
+    }
+
+    .save-bar button
+    {
+        width: 100%;
+    }
+}

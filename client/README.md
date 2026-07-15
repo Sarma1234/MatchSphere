@@ -44,6 +44,8 @@ create footer and added in landing page
 installed react framer motion
 updated jsx and css code for redsigning
 create animatedsection components and wrapped every componenet of landing page within it
+updated componets css with same and identical design
+created mouseglow file and function and used in lnding page
 
 
 

@@ -1,0 +1,59 @@
+.edit-profile-page
+{
+    min-height: 100vh;
+    padding: 120px 7% 140px;
+    background: #0A0D24;
+}
+
+.edit-profile-container
+{
+    display: grid;
+    grid-template-columns: 1.7fr 0.9fr;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.edit-profile-content
+{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.edit-profile-preview
+{
+    position: sticky;
+    top: 110px;
+}
+
+@media (max-width: 1100px)
+{
+    .edit-profile-container
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-profile-preview
+    {
+        position: static;
+        order: -1;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .edit-profile-page
+    {
+        padding: 100px 20px 120px;
+    }
+
+    .edit-profile-container
+    {
+        gap: 24px;
+    }
+
+    .edit-profile-content
+    {
+        gap: 24px;
+    }
+}

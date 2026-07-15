@@ -1,0 +1,112 @@
+.social-links
+{
+    padding: 32px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.28);
+}
+
+.social-links-list
+{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    margin-top: 28px;
+}
+
+.social-input
+{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 8px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.04);
+
+    transition: .3s ease;
+}
+
+.social-input:hover
+{
+    border-color: rgba(124,156,255,.35);
+
+    background: rgba(124,156,255,.05);
+}
+
+.social-input:focus-within
+{
+    border-color: #7C9CFF;
+
+    box-shadow: 0 0 0 4px rgba(124,156,255,.15);
+}
+
+.social-icon
+{
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(124,156,255,.18),
+        rgba(92,235,208,.15)
+    );
+
+    color: #7C9CFF;
+
+    flex-shrink: 0;
+}
+
+.social-input input
+{
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #FFFFFF;
+
+    font-size: .96rem;
+    font-family: "Inter", sans-serif;
+}
+
+.social-input input::placeholder
+{
+    color: rgba(255,255,255,.45);
+}
+
+@media (max-width:768px)
+{
+    .social-links
+    {
+        padding: 24px;
+    }
+
+    .social-input
+    {
+        gap: 12px;
+    }
+
+    .social-icon
+    {
+        width: 46px;
+        height: 46px;
+    }
+}

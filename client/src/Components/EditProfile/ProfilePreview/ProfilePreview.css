@@ -1,0 +1,138 @@
+.profile-preview
+{
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 20px 45px rgba(0,0,0,.30);
+}
+
+.preview-cover
+{
+    height: 150px;
+}
+
+.preview-cover img
+{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.preview-content
+{
+    position: relative;
+
+    padding: 70px 28px 28px;
+
+    text-align: center;
+}
+
+.preview-avatar
+{
+    position: absolute;
+
+    top: -55px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.preview-avatar img
+{
+    width: 110px;
+    height: 110px;
+
+    border: 5px solid #0A0D24;
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.preview-content h2
+{
+    margin-bottom: 12px;
+
+    color: #FFFFFF;
+
+    font-size: 1.6rem;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.preview-purpose
+{
+    display: inline-block;
+
+    margin-bottom: 18px;
+    padding: 8px 18px;
+
+    border-radius: 999px;
+
+    background: rgba(124,156,255,.18);
+
+    color: #7C9CFF;
+
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.preview-bio
+{
+    color: rgba(255,255,255,.72);
+
+    line-height: 1.7;
+
+    margin-bottom: 24px;
+}
+
+.preview-details
+{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    margin-bottom: 26px;
+}
+
+.preview-item
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: rgba(255,255,255,.78);
+
+    font-size: .92rem;
+}
+
+.preview-item svg
+{
+    color: #5CEBD0;
+}
+
+.preview-tags
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.preview-tags span
+{
+    padding: 10px 16px;
+
+    border: 1px solid rgba(124,156,255,.25);
+    border-radius: 999px;
+
+    background: rgba(124,156,255,.10);
+
+    color: #FFFFFF;
+
+    font-size: .88rem;
+}

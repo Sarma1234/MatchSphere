@@ -1,0 +1,132 @@
+.privacy-settings
+{
+    padding: 32px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.28);
+}
+
+.privacy-list
+{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    margin-top: 28px;
+}
+
+.privacy-item
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.04);
+
+    transition: .3s ease;
+}
+
+.privacy-item:hover
+{
+    border-color: rgba(124,156,255,.30);
+
+    background: rgba(124,156,255,.05);
+}
+
+.privacy-info h3
+{
+    margin-bottom: 6px;
+
+    color: #FFFFFF;
+
+    font-size: 1.05rem;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.privacy-info p
+{
+    color: rgba(255,255,255,.65);
+
+    line-height: 1.6;
+
+    font-size: .92rem;
+}
+
+.toggle-switch
+{
+    position: relative;
+
+    width: 64px;
+    height: 34px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.12);
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.toggle-switch span
+{
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    background: #FFFFFF;
+
+    transition: .3s;
+}
+
+.toggle-switch.active
+{
+    background: linear-gradient(
+        135deg,
+        #7C9CFF,
+        #5CEBD0
+    );
+
+    box-shadow: 0 0 18px rgba(124,156,255,.30);
+}
+
+.toggle-switch.active span
+{
+    left: 34px;
+}
+
+@media (max-width:768px)
+{
+    .privacy-settings
+    {
+        padding: 24px;
+    }
+
+    .privacy-item
+    {
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .privacy-info
+    {
+        flex: 1;
+    }
+}
