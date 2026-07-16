@@ -2,8 +2,84 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
+/* -------------------------------------------------------------------------- */
+/*                               Sub Schemas                                  */
+/* -------------------------------------------------------------------------- */
+
+const photoSchema = new mongoose.Schema(
+    {
+        url: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+
+        publicId: {
+            type: String,
+            default: "",
+        },
+
+        caption: {
+            type: String,
+            default: "",
+            trim: true,
+        },
+
+        isPrimary: {
+            type: Boolean,
+            default: false,
+        },
+
+        uploadedAt: {
+            type: Date,
+            default: Date.now,
+        },
+    },
+    { _id: false }
+);
+
+const skillSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+
+        level: {
+            type: String,
+            enum: ["Beginner", "Intermediate", "Advanced", "Expert"],
+            default: "Beginner",
+        },
+    },
+    { _id: false }
+);
+
+const languageSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+
+        proficiency: {
+            type: String,
+            enum: ["Basic", "Intermediate", "Fluent", "Native"],
+            default: "Basic",
+        },
+    },
+    { _id: false }
+);
+
+/* -------------------------------------------------------------------------- */
+/*                               User Schema                                  */
+/* -------------------------------------------------------------------------- */
+
 const userSchema = new mongoose.Schema(
     {
+        /* ------------------------- Authentication ------------------------- */
+
         fullName: {
             type: String,
             required: [true, "Full name is required"],
@@ -34,26 +110,28 @@ const userSchema = new mongoose.Schema(
             select: false,
         },
 
-        profilePhoto: {
+        role: {
             type: String,
-            default: "",
+            enum: ["user", "admin"],
+            default: "user",
         },
 
-        age: {
-            type: Number,
-            min: 18,
-            max: 100,
+        accountStatus: {
+            type: String,
+            enum: ["active", "suspended", "blocked"],
+            default: "active",
         },
 
-        gender: {
-            type: String,
-            enum: ["Male", "Female", "Other"],
+        isEmailVerified: {
+            type: Boolean,
+            default: false,
         },
 
-        location: {
-            type: String,
-            default: "",
+        lastLogin: {
+            type: Date,
         },
+
+        /* ------------------------- General Profile ------------------------- */
 
         bio: {
             type: String,
@@ -61,65 +139,138 @@ const userSchema = new mongoose.Schema(
             default: "",
         },
 
-        skills: [
-            {
+        dateOfBirth: {
+            type: Date,
+        },
+
+        gender: {
+            type: String,
+            enum: ["Male", "Female", "Other", "Prefer not to say"],
+        },
+
+        occupation: {
+            title: {
                 type: String,
+                default: "",
+                trim: true,
             },
-        ],
+
+            company: {
+                type: String,
+                default: "",
+                trim: true,
+            },
+        },
+
+        location: {
+            city: {
+                type: String,
+                default: "",
+                trim: true,
+            },
+
+            state: {
+                type: String,
+                default: "",
+                trim: true,
+            },
+
+            country: {
+                type: String,
+                default: "",
+                trim: true,
+            },
+        },
+        /* ---------------------------- Photos ---------------------------- */
+
+        photos: {
+            type: [photoSchema],
+            validate: {
+                validator: function (photos) {
+                    return photos.length <= 6;
+                },
+                message: "Maximum 6 photos are allowed.",
+            },
+        },
+
+        /* ---------------------------- Skills ---------------------------- */
+
+        skills: [skillSchema],
+
+        /* --------------------------- Interests --------------------------- */
 
         interests: [
             {
                 type: String,
+                trim: true,
             },
         ],
 
-        purpose: {
-            type: String,
-            enum: [
-                "Study Partner",
-                "Travel Partner",
-                "Coding Partner",
-                "Fitness Partner",
-                "Gaming Partner",
-                "Startup Co-founder",
-                "Language Exchange",
-                "Event Companion",
-                "Book Club",
-                "Networking",
-            ],
-            required: true,
-        },
+        /* --------------------------- Languages --------------------------- */
 
-        profession: {
-            type: String,
-            default: "",
-        },
+        languages: [languageSchema],
 
-        education: {
-            type: String,
-            default: "",
-        },
+        /* ------------------------- Social Links ------------------------- */
 
-        github: {
-            type: String,
-            default: "",
-        },
-
-        linkedin: {
-            type: String,
-            default: "",
-        },
-
-        portfolio: {
-            type: String,
-            default: "",
-        },
-
-        socialLinks: [
-            {
+        socialLinks: {
+            github: {
                 type: String,
+                default: "",
             },
-        ],
+
+            linkedin: {
+                type: String,
+                default: "",
+            },
+
+            portfolio: {
+                type: String,
+                default: "",
+            },
+
+            instagram: {
+                type: String,
+                default: "",
+            },
+
+            twitter: {
+                type: String,
+                default: "",
+            },
+        },
+
+        /* ------------------------ Active Purpose ------------------------ */
+
+        activePurpose: {
+            type: String,
+            default: "",
+        },
+        /* --------------------- Profile Completion ---------------------- */
+
+        profileCompletion: {
+            type: Number,
+            default: 0,
+            min: 0,
+            max: 100,
+        },
+
+        isProfileCompleted: {
+            type: Boolean,
+            default: false,
+        },
+
+        /* ------------------------- Online Status ------------------------ */
+
+        isOnline: {
+            type: Boolean,
+            default: false,
+        },
+
+        lastSeen: {
+            type: Date,
+        },
+
+        /* --------------------------- Verification --------------------------- */
 
         isVerified: {
             type: Boolean,
@@ -130,15 +281,33 @@ const userSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
+
+/* -------------------------------------------------------------------------- */
+/*                                  Indexes                                   */
+/* -------------------------------------------------------------------------- */
+
+userSchema.index({ email: 1 });
+userSchema.index({ username: 1 });
+userSchema.index({ "location.city": 1 });
+userSchema.index({ activePurpose: 1 });
+
+/* -------------------------------------------------------------------------- */
+/*                           Password Hash Middleware                         */
+/* -------------------------------------------------------------------------- */
+
 userSchema.pre("save", async function (next) {
-    // Only hash if the password was modified
-    if (!this.isModified("password")) {
-        return next();
-    }
+    if (!this.isModified("password")) return next();
 
-    // Hash the password
-    this.password = await bcrypt.hash(this.password, 10);
-
+    this.password = await bcrypt.hash(this.password, 12);
     next();
 });
+
+/* -------------------------------------------------------------------------- */
+/*                            Compare Password Method                         */
+/* -------------------------------------------------------------------------- */
+
+userSchema.methods.comparePassword = async function (enteredPassword) {
+    return bcrypt.compare(enteredPassword, this.password);
+};
+
 module.exports = mongoose.model("User", userSchema);

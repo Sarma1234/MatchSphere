@@ -26,18 +26,17 @@
 // module.exports = app;
 
 const express = require("express");
-const ApiError = require("./utils/ApiError");
+
 const errorHandler = require("./middleware/errorHandler");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res, next) => {
-    next(new ApiError(400, "Testing Global Error Handler"));
-});
+app.use("/api/v1/auth", authRoutes);
 
-// Always keep this LAST
+// Always last
 app.use(errorHandler);
 
 module.exports = app;
