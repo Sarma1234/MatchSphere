@@ -44,6 +44,9 @@ create footer and added in landing page
 installed react framer motion
 installed react lucide icons
 create app layout for pribvat layout design which bwill contain bootom nav sidebar and topbar and inside content we can show discover chts and other pages
+create edit profile and its components but not rendering anywhere
+implemented chats section with all its components
+
 
 
 
