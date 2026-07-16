@@ -10,7 +10,7 @@ import AppLayout from "./components/Layout/AppLayout";
 // Private Pages
 import Discover from "./pages/Discover/Discover";
 // import Profile from "./pages/Profile/Profile";
-// import Chats from "./pages/Chats/Chats";
+import Chats from "./pages/Chats/Chats";
 // import Settings from "./pages/Settings/Settings";
 // import Requests from "./pages/Requests/Requests";
 import Connections from "./pages/Connections/Connections";
@@ -37,6 +37,11 @@ function App() {
           <Route
             path="/connections"
             element={<Connections />}
+            
+          />
+          <Route
+            path="/chats"
+            element={<Chats />}
           />
 {/* 
           <Route
