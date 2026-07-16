@@ -13,6 +13,7 @@ import Discover from "./pages/Discover/Discover";
 // import Chats from "./pages/Chats/Chats";
 // import Settings from "./pages/Settings/Settings";
 // import Requests from "./pages/Requests/Requests";
+import Connections from "./pages/Connections/Connections";
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
           <Route
             path="/discover"
             element={<Discover />}
+          />
+          <Route
+            path="/connections"
+            element={<Connections />}
           />
 {/* 
           <Route

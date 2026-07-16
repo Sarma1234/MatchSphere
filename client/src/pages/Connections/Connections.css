@@ -1,0 +1,46 @@
+.connections-page
+{
+    min-height: 100vh;
+
+    padding: 120px 7% 80px;
+
+    background: #0A0D24;
+}
+
+.connections-container
+{
+    max-width: 1350px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+.connections-list
+{
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+@media (max-width:768px)
+{
+    .connections-page
+    {
+        padding: 100px 20px 40px;
+    }
+
+    .connections-container
+    {
+        gap: 22px;
+    }
+
+    .connections-list
+    {
+        gap: 18px;
+    }
+}
