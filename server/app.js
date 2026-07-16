@@ -29,13 +29,16 @@ const express = require("express");
 
 const errorHandler = require("./middleware/errorHandler");
 const authRoutes = require("./routes/authRoutes");
+const profileRoutes = require("./routes/profileRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
 app.use(express.json());
 
 app.use("/api/v1/auth", authRoutes);
-
+app.use("/api/v1/profile", profileRoutes);
+app.use("/api/v1/users", userRoutes);
 // Always last
 app.use(errorHandler);
 

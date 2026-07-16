@@ -243,7 +243,20 @@ const userSchema = new mongoose.Schema(
 
         activePurpose: {
             type: String,
-            default: "",
+            enum: [
+                "Project Partner",
+                "Study Partner",
+                "Networking",
+                "Startup",
+                "Workout Buddy",
+                "Travel Partner",
+                "Gaming Buddy",
+                "Event Buddy",
+                "Hackathon Partner",
+                "Language Exchange",
+                "Co-founder"
+            ],
+            default: "Networking"
         },
         /* --------------------- Profile Completion ---------------------- */
 
@@ -309,5 +322,5 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.comparePassword = async function (enteredPassword) {
     return bcrypt.compare(enteredPassword, this.password);
 };
-
+console.log("Active Purpose Enum:", userSchema.path("activePurpose").enumValues);
 module.exports = mongoose.model("User", userSchema);

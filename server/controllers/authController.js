@@ -29,8 +29,22 @@ const login = asyncHandler(async (req, res) => {
     );
 
 });
+const getCurrentUser = asyncHandler(async (req, res) => {
+
+    const user = await authService.getCurrentUser(req.user._id);
+
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            user,
+            "User fetched successfully"
+        )
+    );
+
+});
 
 module.exports = {
     register,
     login,
+    getCurrentUser,
 };
