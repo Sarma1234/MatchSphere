@@ -1,7 +1,7 @@
 const {
     registerSchema,
     loginSchema
-} = require("./auth.validator");
+} = require("./auth.validators");
 
 module.exports = {
     registerSchema,

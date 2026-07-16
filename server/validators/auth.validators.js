@@ -1,11 +1,17 @@
 const { z } = require("zod");
 
 const registerSchema = z.object({
-    name: z
+    username: z
         .string()
         .trim()
-        .min(3, "Name must be at least 3 characters")
-        .max(30, "Name cannot exceed 30 characters"),
+        .min(3, "Username must be at least 3 characters")
+        .max(20, "Username cannot exceed 20 characters"),
+
+    fullName: z
+        .string()
+        .trim()
+        .min(3, "Full name must be at least 3 characters")
+        .max(50, "Full name cannot exceed 50 characters"),
 
     email: z
         .string()
