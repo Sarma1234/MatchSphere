@@ -1,0 +1,260 @@
+.match-card
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    padding: 28px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(18px);
+
+    transition: .35s ease;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+}
+
+.match-card:hover
+{
+    transform: translateY(-6px);
+
+    border-color: rgba(124,156,255,.30);
+
+    box-shadow: 0 20px 40px rgba(124,156,255,.12);
+}
+
+.match-left
+{
+    display: flex;
+    gap: 24px;
+    flex: 1;
+}
+
+.match-avatar
+{
+    position: relative;
+}
+
+.match-avatar img
+{
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 3px solid rgba(124,156,255,.35);
+}
+
+.online-dot
+{
+    position: absolute;
+
+    right: 6px;
+    bottom: 8px;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: #5CEBD0;
+
+    border: 2px solid #0A0D24;
+}
+
+.match-content
+{
+    flex: 1;
+}
+
+.match-top
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+.match-top h2
+{
+    color: white;
+
+    font-size: 1.45rem;
+
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.connected-badge
+{
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    background: rgba(92,235,208,.15);
+
+    color: #5CEBD0;
+
+    font-weight: 600;
+}
+
+.purpose-badge
+{
+    display: inline-block;
+
+    margin-bottom: 16px;
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    background: rgba(124,156,255,.14);
+
+    color: #7C9CFF;
+}
+
+.match-meta
+{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+
+    margin-bottom: 18px;
+}
+
+.match-meta span
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: rgba(255,255,255,.70);
+}
+
+.match-bio
+{
+    margin-bottom: 18px;
+
+    color: rgba(255,255,255,.72);
+
+    line-height: 1.8;
+}
+
+.match-skills
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.match-skills span
+{
+    padding: 9px 16px;
+
+    border-radius: 999px;
+
+    background: rgba(124,156,255,.08);
+
+    border: 1px solid rgba(124,156,255,.20);
+
+    color: white;
+
+    font-size: .88rem;
+}
+
+.match-status
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    color: rgba(255,255,255,.65);
+
+    font-size: .9rem;
+}
+
+.match-status span
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.match-actions
+{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.message-btn,
+.profile-btn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 170px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.message-btn
+{
+    background: linear-gradient(135deg,#7C9CFF,#5CEBD0);
+
+    color: white;
+}
+
+.profile-btn
+{
+    background: rgba(255,255,255,.08);
+
+    color: white;
+}
+
+.message-btn:hover,
+.profile-btn:hover
+{
+    transform: translateY(-2px);
+}
+
+@media (max-width:950px)
+{
+    .match-card
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .match-actions
+    {
+        width: 100%;
+
+        flex-direction: row;
+    }
+
+    .message-btn,
+    .profile-btn
+    {
+        flex: 1;
+    }
+}

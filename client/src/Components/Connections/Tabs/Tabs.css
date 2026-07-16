@@ -1,0 +1,115 @@
+.connections-tabs
+{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 22px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px);
+
+    width: fit-content;
+}
+
+.tab-button
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 22px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: transparent;
+
+    color: rgba(255,255,255,0.70);
+
+    font-family: "Inter", sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.tab-button span
+{
+    white-space: nowrap;
+}
+
+.tab-button small
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 26px;
+    height: 26px;
+
+    padding: 0 8px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.08);
+
+    font-size: .75rem;
+    color: rgba(255,255,255,.75);
+}
+
+.tab-button:hover
+{
+    color: #FFFFFF;
+
+    background: rgba(255,255,255,.05);
+}
+
+.tab-button.active
+{
+    color: #FFFFFF;
+
+    background: linear-gradient(
+        135deg,
+        rgba(124,156,255,.22),
+        rgba(92,235,208,.16)
+    );
+
+    box-shadow:
+        0 10px 25px rgba(124,156,255,.18),
+        inset 0 0 18px rgba(124,156,255,.08);
+}
+
+.tab-button.active small
+{
+    background: rgba(255,255,255,.18);
+
+    color: #FFFFFF;
+}
+
+@media (max-width:768px)
+{
+    .connections-tabs
+    {
+        width: 100%;
+
+        overflow-x: auto;
+
+        padding: 8px;
+    }
+
+    .connections-tabs::-webkit-scrollbar
+    {
+        display: none;
+    }
+
+    .tab-button
+    {
+        flex-shrink: 0;
+    }
+}
