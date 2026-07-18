@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
+const MATCH_PURPOSES = require("../constants/matchPurpose");
+
 const userPurposeSchema = new mongoose.Schema(
     {
-        /* ----------------------------- References ----------------------------- */
+        /* ----------------------------- User ----------------------------- */
 
         user: {
             type: mongoose.Schema.Types.ObjectId,
@@ -10,28 +12,27 @@ const userPurposeSchema = new mongoose.Schema(
             required: true,
         },
 
+        /* ---------------------------- Purpose --------------------------- */
+
         purpose: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Purpose",
+            type: String,
+            enum: Object.values(MATCH_PURPOSES),
             required: true,
         },
 
-        /* ---------------------- Purpose Specific Answers ---------------------- */
+        /* --------------------- Purpose Specific Data -------------------- */
+
         answers: {
             type: Map,
             of: mongoose.Schema.Types.Mixed,
-            default: {}
+            default: {},
         },
 
-        /* -------------------------- Status -------------------------- */
-
-        isActive: {
-            type: Boolean,
-            default: false,
-        },
+        /* --------------------------- Metadata --------------------------- */
 
         completedAt: {
             type: Date,
+            default: Date.now,
         },
     },
     {
@@ -40,18 +41,32 @@ const userPurposeSchema = new mongoose.Schema(
 );
 
 /* -------------------------------------------------------------------------- */
-/*                                  Indexes                                   */
+/*                                   Indexes                                  */
 /* -------------------------------------------------------------------------- */
 
-// One user can have only one document per purpose
+// One document per user per purpose
+
 userPurposeSchema.index(
-    { user: 1, purpose: 1 },
-    { unique: true }
+    {
+        user: 1,
+        purpose: 1,
+    },
+    {
+        unique: true,
+    }
 );
 
-// Faster filtering
-userPurposeSchema.index({ user: 1 });
-userPurposeSchema.index({ purpose: 1 });
-userPurposeSchema.index({ isActive: 1 });
+userPurposeSchema.index({
+    user: 1,
+});
 
-module.exports = mongoose.model("UserPurpose", userPurposeSchema);
+userPurposeSchema.index({
+    purpose: 1,
+});
+
+/* -------------------------------------------------------------------------- */
+
+module.exports = mongoose.model(
+    "UserPurpose",
+    userPurposeSchema
+);

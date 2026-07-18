@@ -1,0 +1,418 @@
+.profile-page
+{
+    min-height: 100vh;
+
+    padding: 120px 7% 140px;
+
+    background: #0A0D24;
+}
+
+
+
+.profile-container
+{
+    display: grid;
+
+    grid-template-columns: 1.5fr 0.9fr;
+
+    gap: 32px;
+
+    align-items: flex-start;
+}
+
+
+
+.profile-content
+{
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+
+
+/* ---------------- Profile Card ---------------- */
+
+
+.profile-card
+{
+    padding: 40px;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+
+    background:
+        rgba(255,255,255,0.05);
+
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.35);
+
+
+    text-align: center;
+}
+
+
+
+.profile-avatar
+{
+    width: 120px;
+
+    height: 120px;
+
+    margin: 0 auto 20px;
+
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+
+    border:
+        4px solid rgba(124,156,255,0.6);
+}
+
+
+
+.profile-avatar img
+{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+
+.profile-card h1
+{
+    color:#FFFFFF;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:2rem;
+
+    margin-bottom:6px;
+}
+
+
+
+.profile-username
+{
+    color:
+    rgba(255,255,255,0.55);
+
+    margin-bottom:18px;
+}
+
+
+
+.profile-purpose
+{
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+
+    background:
+    rgba(124,156,255,0.15);
+
+
+    color:#7C9CFF;
+
+    font-size:0.9rem;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+
+
+.profile-card h3
+{
+    color:white;
+
+    margin-bottom:12px;
+}
+
+
+
+.profile-bio
+{
+    max-width:600px;
+
+    margin:auto;
+
+    color:
+    rgba(255,255,255,0.7);
+
+    line-height:1.7;
+}
+
+
+
+
+
+/* ---------------- Details ---------------- */
+
+
+.profile-details
+{
+    margin-top:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+
+    color:
+    rgba(255,255,255,0.75);
+}
+
+
+
+.profile-details p
+{
+    margin:0;
+}
+
+
+
+
+/* ---------------- Skills ---------------- */
+
+
+.profile-skills,
+.profile-interests
+{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:28px;
+
+    justify-content:center;
+}
+
+
+
+.profile-skills span,
+.profile-interests span
+{
+
+    padding:8px 16px;
+
+    border-radius:20px;
+
+
+    background:
+    rgba(255,255,255,0.08);
+
+
+    color:white;
+
+    font-size:0.85rem;
+}
+
+
+
+
+
+/* ---------------- Action Card ---------------- */
+
+
+.profile-action-card
+{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    gap:30px;
+
+
+    padding:32px;
+
+
+    border-radius:24px;
+
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(124,156,255,0.15),
+        rgba(92,235,208,0.08)
+    );
+
+
+    backdrop-filter:blur(24px);
+
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,0.35);
+}
+
+
+
+
+.profile-action-card h2
+{
+    color:white;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    margin-bottom:10px;
+}
+
+
+
+.profile-action-card p
+{
+    color:
+    rgba(255,255,255,0.7);
+
+    line-height:1.6;
+}
+
+
+
+.profile-action-btn
+{
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:18px;
+
+
+    cursor:pointer;
+
+
+    color:white;
+
+    font-weight:600;
+
+
+    background:
+    linear-gradient(
+        135deg,
+        #7C9CFF,
+        #5CEBD0
+    );
+
+
+    transition:0.3s ease;
+}
+
+
+
+.profile-action-btn:hover
+{
+    transform:translateY(-4px);
+}
+
+
+
+/* ---------------- Preview ---------------- */
+
+
+.profile-preview
+{
+    position:sticky;
+
+    top:110px;
+}
+
+
+
+
+
+@media(max-width:1100px)
+{
+
+    .profile-container
+    {
+        grid-template-columns:1fr;
+    }
+
+
+    .profile-preview
+    {
+        position:static;
+
+        order:-1;
+    }
+
+}
+
+
+
+
+
+@media(max-width:768px)
+{
+
+    .profile-page
+    {
+        padding:
+        100px 20px 120px;
+    }
+
+
+
+    .profile-card
+    {
+        padding:28px;
+    }
+
+
+
+    .profile-action-card
+    {
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+
+
+    .profile-action-btn
+    {
+        width:100%;
+    }
+
+}
+.profile-action-content{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+    margin-bottom:20px;
+
+}

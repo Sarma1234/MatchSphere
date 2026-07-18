@@ -1,0 +1,29 @@
+{
+  "name": "matchsphere",
+  "version": "1.0.0",
+  "description": "We'll create a platform which matches people based on goals and interests..\r bulit folder steucture first like pages components and all others\r create navbar...then lnding pageand then imported navbar in landing page and then updated app.jsx to render landing page\r then create simple hero.jsx without css with right side empty as we gonna use orbit compeonent there\r create orbit compeontn without css as we gonna write it later and render orbit compeonnent in hero page\r now we gonna create and visuslaize the entire heor page structure and then will dsign sctrion by section\r now created trustats componmenets with css with a new react thing which is like:\r <div>\r     <h2>16</h2>\r </div>",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarma1234/MatchSphere.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sarma1234/MatchSphere/issues"
+  },
+  "homepage": "https://github.com/Sarma1234/MatchSphere#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  },
+  "dependencies": {
+    "react-toastify": "^11.1.0"
+  }
+}

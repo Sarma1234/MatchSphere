@@ -6,6 +6,7 @@ const validate = (schema) => {
         const result = schema.safeParse(req.body);
 
         if (!result.success) {
+            console.log(JSON.stringify(result.error.issues, null, 2));
 
             const errors = result.error.issues.map(
                 issue => issue.message

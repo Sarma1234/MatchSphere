@@ -53,7 +53,7 @@ const notificationSchema = new mongoose.Schema(
                     "Conversation"
                 ]
             }
-        }
+        },
 
     /* ---------------------------- Status ---------------------------- */
 

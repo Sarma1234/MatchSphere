@@ -1,0 +1,240 @@
+.appearance-settings-card {
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(124,156,255,0.22);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+    0 0 25px rgba(124,156,255,0.08);
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.appearance-settings-card:hover {
+
+    border-color: rgba(92,235,208,0.4);
+
+}
+
+
+
+.appearance-options {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+
+
+.appearance-option {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.appearance-option:hover {
+
+    border-color: #5CEBD0;
+
+}
+
+
+
+.appearance-option h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+
+}
+
+
+
+.appearance-option p {
+
+    font-size: 13px;
+
+    color: rgba(255,255,255,0.55);
+
+}
+
+
+
+.appearance-option select {
+
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    border: 1px solid rgba(124,156,255,0.35);
+
+    outline: none;
+
+}
+
+
+
+.appearance-option select option {
+
+    background: #0A0D24;
+
+}
+
+
+
+/* Range Slider */
+
+
+.appearance-option input[type="range"] {
+
+    width: 130px;
+
+    cursor: pointer;
+
+}
+
+
+
+/* Toggle */
+
+
+.toggle {
+
+    position: relative;
+
+    width: 48px;
+
+    height: 26px;
+
+}
+
+
+
+.toggle input {
+
+    display: none;
+
+}
+
+
+
+.toggle span {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255,255,255,0.15);
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.toggle span::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+
+    height: 20px;
+
+    top: 3px;
+
+    left: 4px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.toggle input:checked + span {
+
+    background: #5CEBD0;
+
+}
+
+
+
+.toggle input:checked + span::before {
+
+    transform: translateX(20px);
+
+    background: #0A0D24;
+
+}
+
+
+
+/* Responsive */
+
+
+@media(max-width:500px) {
+
+    .appearance-option {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .appearance-option select,
+
+    .appearance-option input[type="range"] {
+
+        width: 100%;
+
+    }
+
+}

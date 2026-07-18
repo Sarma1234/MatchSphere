@@ -1,5 +1,5 @@
 // const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 // const morgan = require("morgan");
 
 // const authRoutes = require("./routes/authRoutes");
@@ -7,7 +7,7 @@
 // const app = express();
 
 // // Middleware
-// app.use(cors());
+
 // app.use(express.json());
 // app.use(morgan("dev"));
 
@@ -32,13 +32,17 @@ const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const userRoutes = require("./routes/userRoutes");
 
+const userPurposeRoutes = require("./routes/userPurposeRoutes");
+
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/user-purposes", userPurposeRoutes);
 // Always last
 app.use(errorHandler);
 

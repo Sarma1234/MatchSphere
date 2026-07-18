@@ -1,33 +1,11 @@
-// const ApiError = require("../utils/ApiError");
-
-// const errorHandler = (err, req, res, next) => {
-//     let error = err;
-
-//     // If it's not an instance of ApiError,
-//     // convert it into one.
-//     if (!(error instanceof ApiError)) {
-//         error = new ApiError(
-//             error.statusCode || 500,
-//             error.message || "Internal Server Error"
-//         );
-//     }
-
-//     return res.status(error.statusCode).json({
-//         success: error.success,
-//         statusCode: error.statusCode,
-//         message: error.message,
-//         errors: error.errors,
-//         stack:
-//             process.env.NODE_ENV === "development"
-//                 ? error.stack
-//                 : undefined,
-//     });
-// };
-
-
 const ApiError = require("../utils/ApiError");
 
 const errorHandler = (err, req, res, next) => {
+
+    console.error("========== ERROR ==========");
+    console.error(err);
+    console.error("===========================");
+
     let error = err;
 
     if (!(error instanceof ApiError)) {
@@ -52,4 +30,3 @@ const errorHandler = (err, req, res, next) => {
 };
 
 module.exports = errorHandler;
-

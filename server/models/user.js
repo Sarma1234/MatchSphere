@@ -2,325 +2,809 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
+const MATCH_PURPOSES = require("../constants/matchPurpose");
+
+
 /* -------------------------------------------------------------------------- */
 /*                               Sub Schemas                                  */
 /* -------------------------------------------------------------------------- */
 
+
 const photoSchema = new mongoose.Schema(
+
     {
         url: {
+
             type: String,
+
             required: true,
+
             trim: true,
+
         },
+
 
         publicId: {
+
             type: String,
+
             default: "",
+
         },
+
 
         caption: {
+
             type: String,
+
             default: "",
+
             trim: true,
+
         },
+
 
         isPrimary: {
+
             type: Boolean,
+
             default: false,
+
         },
+
 
         uploadedAt: {
+
             type: Date,
+
             default: Date.now,
+
         },
+
     },
-    { _id: false }
+
+    {
+        _id: false
+    }
+
 );
+
+
 
 const skillSchema = new mongoose.Schema(
+
     {
+
         name: {
+
             type: String,
+
             required: true,
+
             trim: true,
+
         },
+
 
         level: {
+
             type: String,
-            enum: ["Beginner", "Intermediate", "Advanced", "Expert"],
+
+            enum: [
+                "Beginner",
+                "Intermediate",
+                "Advanced",
+                "Expert"
+            ],
+
             default: "Beginner",
+
         },
+
     },
-    { _id: false }
+
+    {
+        _id: false
+    }
+
 );
+
+
 
 const languageSchema = new mongoose.Schema(
+
     {
+
         name: {
+
             type: String,
+
             required: true,
+
             trim: true,
+
         },
 
+
         proficiency: {
+
             type: String,
-            enum: ["Basic", "Intermediate", "Fluent", "Native"],
+
+            enum: [
+                "Basic",
+                "Intermediate",
+                "Fluent",
+                "Native"
+            ],
+
             default: "Basic",
+
         },
+
     },
-    { _id: false }
+
+    {
+        _id: false
+    }
+
 );
+
 
 /* -------------------------------------------------------------------------- */
 /*                               User Schema                                  */
 /* -------------------------------------------------------------------------- */
 
+
 const userSchema = new mongoose.Schema(
-    {
-        /* ------------------------- Authentication ------------------------- */
 
-        fullName: {
-            type: String,
-            required: [true, "Full name is required"],
-            trim: true,
-        },
+{
 
-        username: {
-            type: String,
-            required: [true, "Username is required"],
-            unique: true,
-            trim: true,
-            lowercase: true,
-        },
+/* -------------------------------------------------------------------------- */
+/*                              Authentication                                */
+/* -------------------------------------------------------------------------- */
 
-        email: {
-            type: String,
-            required: [true, "Email is required"],
-            unique: true,
-            lowercase: true,
-            trim: true,
-            validate: [validator.isEmail, "Please enter a valid email"],
-        },
 
-        password: {
-            type: String,
-            required: [true, "Password is required"],
-            minlength: 6,
-            select: false,
-        },
+fullName: {
 
-        role: {
-            type: String,
-            enum: ["user", "admin"],
-            default: "user",
-        },
+    type: String,
 
-        accountStatus: {
-            type: String,
-            enum: ["active", "suspended", "blocked"],
-            default: "active",
-        },
+    required: true,
 
-        isEmailVerified: {
-            type: Boolean,
-            default: false,
-        },
+    trim: true,
 
-        lastLogin: {
-            type: Date,
-        },
+},
 
-        /* ------------------------- General Profile ------------------------- */
 
-        bio: {
-            type: String,
-            maxlength: 500,
-            default: "",
-        },
+username: {
 
-        dateOfBirth: {
-            type: Date,
-        },
+    type: String,
 
-        gender: {
-            type: String,
-            enum: ["Male", "Female", "Other", "Prefer not to say"],
-        },
+    required: true,
 
-        occupation: {
-            title: {
-                type: String,
-                default: "",
-                trim: true,
-            },
+    unique: true,
 
-            company: {
-                type: String,
-                default: "",
-                trim: true,
-            },
-        },
+    lowercase: true,
 
-        location: {
-            city: {
-                type: String,
-                default: "",
-                trim: true,
-            },
+    trim: true,
 
-            state: {
-                type: String,
-                default: "",
-                trim: true,
-            },
+},
 
-            country: {
-                type: String,
-                default: "",
-                trim: true,
-            },
-        },
-        /* ---------------------------- Photos ---------------------------- */
 
-        photos: {
-            type: [photoSchema],
-            validate: {
-                validator: function (photos) {
-                    return photos.length <= 6;
-                },
-                message: "Maximum 6 photos are allowed.",
-            },
-        },
+email: {
 
-        /* ---------------------------- Skills ---------------------------- */
+    type: String,
 
-        skills: [skillSchema],
+    required: true,
 
-        /* --------------------------- Interests --------------------------- */
+    unique: true,
 
-        interests: [
-            {
-                type: String,
-                trim: true,
-            },
-        ],
+    lowercase: true,
 
-        /* --------------------------- Languages --------------------------- */
+    trim: true,
 
-        languages: [languageSchema],
+    validate: [
+        validator.isEmail,
+        "Please enter valid email"
+    ],
 
-        /* ------------------------- Social Links ------------------------- */
+},
 
-        socialLinks: {
-            github: {
-                type: String,
-                default: "",
-            },
 
-            linkedin: {
-                type: String,
-                default: "",
-            },
+password: {
 
-            portfolio: {
-                type: String,
-                default: "",
-            },
+    type: String,
 
-            instagram: {
-                type: String,
-                default: "",
-            },
+    required: true,
 
-            twitter: {
-                type: String,
-                default: "",
-            },
-        },
+    minlength: 6,
 
-        /* ------------------------ Active Purpose ------------------------ */
+    select: false,
 
-        activePurpose: {
-            type: String,
-            enum: [
-                "Project Partner",
-                "Study Partner",
-                "Networking",
-                "Startup",
-                "Workout Buddy",
-                "Travel Partner",
-                "Gaming Buddy",
-                "Event Buddy",
-                "Hackathon Partner",
-                "Language Exchange",
-                "Co-founder"
-            ],
-            default: "Networking"
-        },
-        /* --------------------- Profile Completion ---------------------- */
+},
 
-        profileCompletion: {
-            type: Number,
-            default: 0,
-            min: 0,
-            max: 100,
-        },
 
-        isProfileCompleted: {
-            type: Boolean,
-            default: false,
-        },
+role: {
 
-        /* ------------------------- Online Status ------------------------ */
+    type: String,
 
-        isOnline: {
-            type: Boolean,
-            default: false,
-        },
+    enum: [
+        "user",
+        "admin"
+    ],
 
-        lastSeen: {
-            type: Date,
-        },
+    default: "user",
 
-        /* --------------------------- Verification --------------------------- */
+},
 
-        isVerified: {
-            type: Boolean,
-            default: false,
-        },
+
+accountStatus: {
+
+    type: String,
+
+    enum: [
+        "active",
+        "suspended",
+        "blocked"
+    ],
+
+    default: "active",
+
+},
+
+
+isEmailVerified: {
+
+    type: Boolean,
+
+    default: false,
+
+},
+
+
+lastLogin: Date,
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Profile Info                                  */
+/* -------------------------------------------------------------------------- */
+
+
+headline: {
+
+    type: String,
+
+    default: "",
+
+    maxlength: 120,
+
+    trim: true,
+
+},
+
+
+bio: {
+
+    type: String,
+
+    default: "",
+
+    maxlength: 500,
+
+},
+
+
+dateOfBirth: Date,
+
+
+gender: {
+
+    type: String,
+
+    enum: [
+        "Male",
+        "Female",
+        "Other",
+        "Prefer not to say"
+    ],
+
+},
+
+
+
+professional: {
+
+
+    title: {
+
+        type: String,
+
+        default: "",
+
+        trim: true,
+
     },
-    {
-        timestamps: true,
+
+
+    company: {
+
+        type: String,
+
+        default: "",
+
+        trim: true,
+
+    },
+
+
+},
+
+
+
+education: {
+
+
+    college: {
+
+        type: String,
+
+        default: "",
+
+        trim: true,
+
+    },
+
+
+    degree: {
+
+        type: String,
+
+        default: "",
+
+        trim: true,
+
+    },
+
+
+    graduationYear: Number,
+
+
+},
+
+
+
+
+location: {
+
+
+    city: {
+
+        type: String,
+
+        default: "",
+
+        trim: true,
+
+    },
+
+
+    state: {
+
+        type: String,
+
+        default: "",
+
+        trim: true,
+
+    },
+
+
+    country: {
+
+        type: String,
+
+        default: "",
+
+        trim: true,
+
+    },
+
+
+},
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Media                                     */
+/* -------------------------------------------------------------------------- */
+
+
+coverPhoto: {
+
+
+    url: {
+
+        type: String,
+
+        default: "",
+
+    },
+
+
+    publicId: {
+
+        type: String,
+
+        default: "",
+
+    },
+
+
+},
+
+
+
+photos: {
+
+    type: [photoSchema],
+
+    validate: {
+
+        validator: function(photos){
+
+            return photos.length <= 6;
+
+        },
+
+        message:
+        "Maximum 6 photos allowed."
+
     }
+
+},
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Skills / Interests                             */
+/* -------------------------------------------------------------------------- */
+
+
+skills: [
+
+    skillSchema
+
+],
+
+
+
+interests: [
+
+    {
+
+        type: String,
+
+        trim: true,
+
+    }
+
+],
+
+
+
+languages: [
+
+    languageSchema
+
+],
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Social Links                                  */
+/* -------------------------------------------------------------------------- */
+
+
+socialLinks: {
+
+
+    github: {
+
+        type: String,
+
+        default: "",
+
+    },
+
+
+    linkedin: {
+
+        type: String,
+
+        default: "",
+
+    },
+
+
+    portfolio: {
+
+        type: String,
+
+        default: "",
+
+    },
+
+
+    instagram: {
+
+        type: String,
+
+        default: "",
+
+    },
+
+
+    twitter: {
+
+        type: String,
+
+        default: "",
+
+    },
+
+
+},
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Privacy                                     */
+/* -------------------------------------------------------------------------- */
+
+
+privacy: {
+
+
+    publicProfile: {
+
+        type: Boolean,
+
+        default: true,
+
+    },
+
+
+    showEmail: {
+
+        type: Boolean,
+
+        default: false,
+
+    },
+
+
+    showSocialLinks: {
+
+        type: Boolean,
+
+        default: true,
+
+    },
+
+
+    allowMessages: {
+
+        type: Boolean,
+
+        default: true,
+
+    },
+
+
+},
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Purpose                                     */
+/* -------------------------------------------------------------------------- */
+
+
+activePurpose: {
+
+    type: String,
+
+    enum: Object.values(MATCH_PURPOSES),
+
+    default: MATCH_PURPOSES.STUDY_PARTNER,
+
+},
+
+
+
+enabledPurposes: [
+
+    {
+
+        type: String,
+
+        enum: Object.values(MATCH_PURPOSES),
+
+    }
+
+],
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Profile Status                                */
+/* -------------------------------------------------------------------------- */
+
+
+profileCompletion: {
+
+    type: Number,
+
+    default: 0,
+
+    min: 0,
+
+    max: 100,
+
+},
+
+
+
+isProfileCompleted: {
+
+    type: Boolean,
+
+    default: false,
+
+},
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Online Status                                 */
+/* -------------------------------------------------------------------------- */
+
+
+isOnline: {
+
+    type: Boolean,
+
+    default: false,
+
+},
+
+
+lastSeen: Date,
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Verification                                 */
+/* -------------------------------------------------------------------------- */
+
+
+isVerified: {
+
+    type: Boolean,
+
+    default: false,
+
+},
+
+
+},
+
+{
+
+timestamps:true
+
+}
+
 );
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  Indexes                                   */
 /* -------------------------------------------------------------------------- */
 
-userSchema.index({ email: 1 });
-userSchema.index({ username: 1 });
-userSchema.index({ "location.city": 1 });
-userSchema.index({ activePurpose: 1 });
 
-/* -------------------------------------------------------------------------- */
-/*                           Password Hash Middleware                         */
-/* -------------------------------------------------------------------------- */
+userSchema.index({
 
-userSchema.pre("save", async function (next) {
-    if (!this.isModified("password")) return next();
+    email:1
 
-    this.password = await bcrypt.hash(this.password, 12);
-    next();
 });
 
+
+userSchema.index({
+
+    username:1
+
+});
+
+
+userSchema.index({
+
+    "location.city":1
+
+});
+
+
+userSchema.index({
+
+    activePurpose:1
+
+});
+
+
+
 /* -------------------------------------------------------------------------- */
-/*                            Compare Password Method                         */
+/*                           Password Hashing                                 */
 /* -------------------------------------------------------------------------- */
 
-userSchema.methods.comparePassword = async function (enteredPassword) {
-    return bcrypt.compare(enteredPassword, this.password);
+
+userSchema.pre(
+
+"save",
+
+async function(next){
+
+
+    if(!this.isModified("password"))
+
+        return next();
+
+
+
+    this.password = await bcrypt.hash(
+
+        this.password,
+
+        12
+
+    );
+
+
+
+    next();
+
+
+}
+
+);
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                         Compare Password                                  */
+/* -------------------------------------------------------------------------- */
+
+
+userSchema.methods.comparePassword = async function(password){
+
+
+    return bcrypt.compare(
+
+        password,
+
+        this.password
+
+    );
+
+
 };
-console.log("Active Purpose Enum:", userSchema.path("activePurpose").enumValues);
-module.exports = mongoose.model("User", userSchema);
+
+
+
+module.exports = mongoose.model(
+
+    "User",
+
+    userSchema
+
+);

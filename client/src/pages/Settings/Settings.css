@@ -1,0 +1,66 @@
+.settings-page {
+
+    min-height: 100vh;
+
+    background: #0A0D24;
+
+    padding: 40px 60px;
+
+    color: white;
+
+    font-family: "Inter", sans-serif;
+
+}
+
+
+.settings-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+.settings-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+
+    margin-top: 30px;
+
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .settings-page {
+
+        padding: 30px 25px;
+
+    }
+
+
+    .settings-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .settings-page {
+
+        padding: 20px 15px;
+
+    }
+
+}

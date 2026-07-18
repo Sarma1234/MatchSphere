@@ -1,11 +1,23 @@
-const MATCH_PURPOSE = Object.freeze({
-    FRIENDSHIP: "friendship",
-    STUDY: "study",
-    NETWORKING: "networking",
+const MATCH_PURPOSES = Object.freeze({
+
+    STUDY_PARTNER: "study_partner",
+
     DATING: "dating",
-    GAMING: "gaming",
-    FITNESS: "fitness",
-    TRAVEL: "travel",
+
+    TRAVEL_PARTNER: "travel_partner",
+
+    STARTUP: "startup",
+
+    CO_FOUNDER: "co_founder",
+
+    FITNESS_PARTNER: "fitness_partner",
+
+    PROJECT_PARTNER: "project_partner",
+
+    HACKATHON_PARTNER: "hackathon_partner",
+
+    OPEN_SOURCE: "open_source"
+
 });
 
-module.exports = MATCH_PURPOSE;
+module.exports = MATCH_PURPOSES;

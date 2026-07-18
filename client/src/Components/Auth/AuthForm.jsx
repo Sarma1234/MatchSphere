@@ -32,8 +32,12 @@ export default function AuthForm({ login, setLogin }) {
                     "user",
                     JSON.stringify(response.data.data.user)
                 );
+                localStorage.setItem(
+    "token",
+    response.data.data.token
+);
 
-                navigate("/discover");
+                navigate("/profile");
 
             } else {
 

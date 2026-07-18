@@ -46,6 +46,10 @@ updated jsx and css code for redsigning
 create animatedsection components and wrapped every componenet of landing page within it
 updated componets css with same and identical design
 created mouseglow file and function and used in lnding page
-
+installed react lucide icons
+create app layout for pribvat layout design which bwill contain bootom nav sidebar and topbar and inside content we can show discover chts and other pages
+created discover page with its components
+create edit profile and its components but not rendering anywhere
+implemented chats section with all its components
 
 

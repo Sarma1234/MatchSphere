@@ -16,10 +16,15 @@ const getMyProfile = asyncHandler(async (req, res) => {
 });
 
 const updateProfile = asyncHandler(async (req, res) => {
+    console.log("req.user =", req.user);
+console.log("req.user.id =", req.user.id);
+console.log("req.user._id =", req.user._id);
+console.log("req.body =", req.body);
 
     const updatedUser = await profileService.updateProfile(
         req.user._id,
         req.body
+        
     );
 
     return res.status(200).json(

@@ -57,3 +57,91 @@
         gap: 24px;
     }
 }
+.edit-profile-topbar
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.edit-profile-heading
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.edit-profile-heading h1
+{
+    margin: 0;
+    color: #FFFFFF;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.edit-profile-heading p
+{
+    margin: 0;
+    color: rgba(255,255,255,0.70);
+    font-size: 0.95rem;
+    text-align: right;
+}
+
+.back-profile-btn
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: 1px solid rgba(124,156,255,0.30);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.05);
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.back-profile-btn:hover
+{
+    transform: translateY(-3px);
+    border-color: rgba(92,235,208,0.45);
+    box-shadow:
+        0 16px 32px rgba(92,235,208,0.18);
+}
+
+@media (max-width: 768px)
+{
+    .edit-profile-topbar
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .edit-profile-heading
+    {
+        align-items: flex-start;
+    }
+
+    .edit-profile-heading p
+    {
+        text-align: left;
+    }
+
+    .back-profile-btn
+    {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -3,8 +3,11 @@ import {
     Camera,
     ImagePlus
 } from "lucide-react";
+import ProfileCompletion from "../../Profile/ProfileCompletion/ProfileCompletion";
 
-export default function ProfileHeader() {
+export default function ProfileHeader({
+    profileData, 
+}) {
     return (
         <section className="profile-header">
 
@@ -45,13 +48,29 @@ export default function ProfileHeader() {
 
                 <div className="completion-card">
 
-                    <div className="completion-circle">
-                        <span>20%</span>
-                    </div>
+    <ProfileCompletion
 
-                    <small>Completed</small>
+        percentage={profileData?.profileCompletion || 0}
 
-                </div>
+        size={90}
+
+    />
+
+    <small>
+
+        {
+
+            profileData?.profileCompletion === 100
+
+                ? "Completed"
+
+                : "Complete Profile for better experience"
+
+        }
+
+    </small>
+
+</div>
 
             </div>
 

@@ -1,0 +1,236 @@
+.security-settings-card {
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(124,156,255,0.22);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+    0 0 25px rgba(124,156,255,0.08);
+
+    transition: 0.3s ease;
+
+}
+
+
+.security-settings-card:hover {
+
+    border-color: rgba(92,235,208,0.4);
+
+}
+
+
+
+.security-options {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+
+
+.security-option {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.security-option:hover {
+
+    transform: translateX(5px);
+
+    border-color: #7C9CFF;
+
+}
+
+
+
+.security-option h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+
+}
+
+
+
+.security-option p {
+
+    font-size: 13px;
+
+    color: rgba(255,255,255,0.55);
+
+}
+
+
+
+.security-option button {
+
+    padding: 8px 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(124,156,255,0.45);
+
+    background: transparent;
+
+    color: #7C9CFF;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.security-option button:hover {
+
+    background: #7C9CFF;
+
+    color: #0A0D24;
+
+    box-shadow:
+
+    0 0 18px rgba(124,156,255,0.45);
+
+}
+
+
+
+/* Security Toggle */
+
+
+.security-toggle {
+
+    position: relative;
+
+    width: 48px;
+
+    height: 26px;
+
+    display: block;
+
+}
+
+
+
+.security-toggle input {
+
+    display: none;
+
+}
+
+
+
+.security-toggle span {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255,255,255,0.15);
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.security-toggle span::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+
+    height: 20px;
+
+    top: 3px;
+
+    left: 4px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.security-toggle input:checked + span {
+
+    background: #7C9CFF;
+
+}
+
+
+
+.security-toggle input:checked + span::before {
+
+    transform: translateX(20px);
+
+    background: #0A0D24;
+
+}
+
+
+
+/* Responsive */
+
+
+@media(max-width:500px) {
+
+    .security-option {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .security-option button {
+
+        width: 100%;
+
+    }
+
+}

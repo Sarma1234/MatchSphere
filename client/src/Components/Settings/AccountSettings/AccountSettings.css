@@ -1,0 +1,170 @@
+.account-settings-card {
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(124,156,255,0.22);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+    0 0 25px rgba(124,156,255,0.08);
+
+    transition: 0.3s ease;
+
+}
+
+
+.account-settings-card:hover {
+
+    border-color: rgba(92,235,208,0.4);
+
+}
+
+
+.settings-section-title h2 {
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.settings-section-title p {
+
+    color: rgba(255,255,255,0.6);
+
+    font-size: 14px;
+
+}
+
+
+.settings-options {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+
+
+.settings-option {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.settings-option:hover {
+
+    transform: translateX(5px);
+
+    border-color: #7C9CFF;
+
+}
+
+
+
+.settings-option h3 {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+
+}
+
+
+
+.settings-option p {
+
+    font-size: 13px;
+
+    color: rgba(255,255,255,0.55);
+
+}
+
+
+
+.settings-option button {
+
+    padding: 8px 16px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(124,156,255,0.4);
+
+    background: transparent;
+
+    color: #7C9CFF;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+
+
+.settings-option button:hover {
+
+    background: #7C9CFF;
+
+    color: #0A0D24;
+
+    box-shadow:
+    0 0 15px rgba(124,156,255,0.5);
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:500px) {
+
+    .settings-option {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .settings-option button {
+
+        width: 100%;
+
+    }
+
+}

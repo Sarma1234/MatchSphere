@@ -1,72 +1,164 @@
-import "./PurposeForm.css";
+import StudyPartnerForm from "./Forms/StudyPartnerForm";
+import HackathonPartnerForm from "./Forms/HackathonPartnerForm";
+import StartupCofounderForm from "./Forms/StartupCofounderForm";
+import ProjectPartnerForm from "./Forms/ProjectPartnerForm";
+import OpenSourceForm from "./Forms/OpenSourceForm";
+import FitnessPartnerForm from "./Forms/FitnessPartnerForm";
+import TravelPartnerForm from "./Forms/TravelPartnerForm";
+import DatingForm from "./Forms/DatingForm";
 
-export default function PurposeForm() {
-    return (
-        <section className="purpose-form">
+export default function PurposeForm({
 
-            <div className="section-heading">
+    profileData,
 
-                <h2>Study Partner Details</h2>
+    setProfileData,
 
-                <p>
-                    Help others understand your study preferences.
-                </p>
+}) {
 
-            </div>
+    switch (profileData.activePurpose) {
 
-            <div className="purpose-form-grid">
+        case "study_partner":
 
-                <div className="input-group">
-                    <label>Subjects</label>
-                    <input
-                        type="text"
-                        placeholder="DSA, DBMS, React..."
-                    />
-                </div>
+            return (
 
-                <div className="input-group">
-                    <label>Preferred Study Time</label>
+                <StudyPartnerForm
 
-                    <select>
-                        <option>Morning</option>
-                        <option>Afternoon</option>
-                        <option>Evening</option>
-                        <option>Night</option>
-                        <option>Flexible</option>
-                    </select>
-                </div>
+                    profileData={profileData}
 
-                <div className="input-group">
-                    <label>Study Mode</label>
+                    setProfileData={setProfileData}
 
-                    <select>
-                        <option>Online</option>
-                        <option>Offline</option>
-                        <option>Hybrid</option>
-                    </select>
-                </div>
+                />
 
-                <div className="input-group">
-                    <label>Experience Level</label>
+            );
 
-                    <select>
-                        <option>Beginner</option>
-                        <option>Intermediate</option>
-                        <option>Advanced</option>
-                    </select>
-                </div>
 
-                <div className="input-group full-width">
-                    <label>Goals</label>
 
-                    <textarea
-                        rows="5"
-                        placeholder="Describe what you're preparing for and what kind of study partner you're looking for..."
-                    ></textarea>
-                </div>
+        case "hackathon_partner":
 
-            </div>
+            return (
 
-        </section>
-    );
+                <HackathonPartnerForm
+
+                    profileData={profileData}
+
+                    setProfileData={setProfileData}
+
+                />
+
+            );
+
+
+
+        case "startup_cofounder":
+
+            return (
+
+                <StartupCofounderForm
+
+                    profileData={profileData}
+
+                    setProfileData={setProfileData}
+
+                />
+
+            );
+
+
+
+        case "project_partner":
+
+            return (
+
+                <ProjectPartnerForm
+
+                    profileData={profileData}
+
+                    setProfileData={setProfileData}
+
+                />
+
+            );
+
+
+
+        case "open_source":
+
+            return (
+
+                <OpenSourceForm
+
+                    profileData={profileData}
+
+                    setProfileData={setProfileData}
+
+                />
+
+            );
+
+
+
+        case "fitness_partner":
+
+            return (
+
+                <FitnessPartnerForm
+
+                    profileData={profileData}
+
+                    setProfileData={setProfileData}
+
+                />
+
+            );
+
+
+
+        case "travel_partner":
+
+            return (
+
+                <TravelPartnerForm
+
+                    profileData={profileData}
+
+                    setProfileData={setProfileData}
+
+                />
+
+            );
+
+
+
+        case "dating":
+
+            return (
+
+                <DatingForm
+
+                    profileData={profileData}
+
+                    setProfileData={setProfileData}
+
+                />
+
+            );
+
+
+
+        default:
+
+            return (
+
+                <StudyPartnerForm
+
+                    profileData={profileData}
+
+                    setProfileData={setProfileData}
+
+                />
+
+            );
+
+    }
+
 }

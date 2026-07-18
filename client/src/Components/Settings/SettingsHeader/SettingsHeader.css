@@ -1,0 +1,229 @@
+.settings-header-card {
+
+    width: 100%;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(124,156,255,0.25);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+    0 0 30px rgba(124,156,255,0.08);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+.settings-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+}
+
+
+.settings-avatar {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 2px solid #7C9CFF;
+
+    box-shadow:
+    0 0 25px rgba(124,156,255,0.45);
+
+}
+
+
+.settings-avatar img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.settings-user-info h1 {
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.settings-user-info p {
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 15px;
+
+}
+
+
+.account-status {
+
+    margin-top: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #5CEBD0;
+
+    font-size: 14px;
+
+}
+
+
+.account-status span {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #5CEBD0;
+
+    box-shadow:
+    0 0 12px #5CEBD0;
+
+}
+
+
+.settings-summary {
+
+    display: flex;
+
+    gap: 18px;
+
+}
+
+
+.summary-item {
+
+    min-width: 110px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition: 0.3s ease;
+
+}
+
+
+.summary-item:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #5CEBD0;
+
+}
+
+
+.summary-item h3 {
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 24px;
+
+    color: #7C9CFF;
+
+}
+
+
+.summary-item p {
+
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    color: rgba(255,255,255,0.6);
+
+}
+
+
+/* Responsive */
+
+@media(max-width:900px) {
+
+    .settings-header-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .settings-summary {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+    }
+
+}
+
+
+@media(max-width:500px) {
+
+    .settings-profile {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .settings-summary {
+
+        flex-direction: column;
+
+    }
+
+
+    .summary-item {
+
+        width: 100%;
+
+    }
+
+}

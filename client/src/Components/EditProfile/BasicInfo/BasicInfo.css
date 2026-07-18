@@ -104,6 +104,25 @@
 {
     grid-column: span 2;
 }
+.form-subheading {
+
+    grid-column: 1 / -1;
+
+    margin: 12px 0 6px;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: #ffffff;
+
+    opacity: 0.95;
+
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+}
 
 @media (max-width:768px)
 {

@@ -6,6 +6,8 @@ import Topbar from "./Topbar";
 import BottomNav from "./BottomNav";
 
 export default function AppLayout() {
+
+
   return (
     <div className="app-layout">
 

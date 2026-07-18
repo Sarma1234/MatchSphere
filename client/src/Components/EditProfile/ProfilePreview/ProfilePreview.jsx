@@ -6,73 +6,273 @@ import {
     Briefcase
 } from "lucide-react";
 
-export default function ProfilePreview() {
+
+export default function ProfilePreview({
+
+    profileData
+
+}) {
+
+
+    const primaryPhoto =
+
+        profileData.photos?.find(
+            photo => photo.isPrimary
+        )
+        ||
+        profileData.photos?.[0];
+
+
+
     return (
+
         <aside className="profile-preview">
+
+
 
             <div className="preview-cover">
 
+
                 <img
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200"
+
+                    src={
+                        profileData.coverPhoto?.url
+                        ||
+                        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200"
+                    }
+
                     alt="Cover"
+
                 />
 
+
             </div>
+
+
+
 
             <div className="preview-content">
 
+
+
                 <div className="preview-avatar">
 
+
                     <img
-                        src="https://i.pravatar.cc/300"
+
+                        src={
+
+                            primaryPhoto?.url
+
+                            ||
+
+                            "https://i.pravatar.cc/300"
+
+                        }
+
                         alt="Profile"
+
                     />
+
 
                 </div>
 
-                <h2>Vikash Kumar</h2>
+
+
+
+
+                <h2>
+
+                    {profileData.fullName || "Your Name"}
+
+                </h2>
+
+
+
+
 
                 <span className="preview-purpose">
-                    Study Partner
+
+
+                    {profileData.activePurpose || "Select Purpose"}
+
+
                 </span>
 
+
+
+
+
                 <p className="preview-bio">
-                    Passionate MERN developer who loves building
-                    meaningful products and learning with like-minded
-                    people.
+
+
+                    {
+                        profileData.bio
+                        ||
+                        "Your profile description will appear here."
+                    }
+
+
                 </p>
+
+
+
+
 
                 <div className="preview-details">
 
-                    <div className="preview-item">
-                        <MapPin size={16} />
-                        <span>Delhi, India</span>
-                    </div>
+
+
+
 
                     <div className="preview-item">
-                        <GraduationCap size={16} />
-                        <span>AKTU University</span>
+
+
+                        <MapPin size={16}/>
+
+
+                        <span>
+
+
+                            {
+                                profileData.location?.city
+                                ||
+                                "Location"
+                            }
+
+                            {
+                                profileData.location?.country
+                                &&
+                                `, ${profileData.location.country}`
+                            }
+
+
+                        </span>
+
+
                     </div>
 
+
+
+
+
+
                     <div className="preview-item">
-                        <Briefcase size={16} />
-                        <span>Computer Science</span>
+
+
+                        <GraduationCap size={16}/>
+
+
+                        <span>
+
+
+                            {
+
+                                profileData.education?.college
+
+                                ||
+
+                                "College / Education"
+
+                            }
+
+
+                        </span>
+
+
                     </div>
+
+
+
+
+
+
+                    <div className="preview-item">
+
+
+                        <Briefcase size={16}/>
+
+
+                        <span>
+
+
+                            {
+
+                                profileData.professional?.title
+
+                                ||
+
+                                "Profession"
+
+                            }
+
+
+                        </span>
+
+
+                    </div>
+
+
+
+
 
                 </div>
+
+
+
+
+
+
 
                 <div className="preview-tags">
 
-                    <span>React</span>
-                    <span>Node.js</span>
-                    <span>MongoDB</span>
-                    <span>JavaScript</span>
-                    <span>DSA</span>
+
+
+                    {
+
+                        profileData.skills
+
+                        ?
+
+                        profileData.skills.map(
+
+                            (skill,index)=>(
+
+
+                                <span key={index}>
+
+
+                                    {skill.name}
+
+
+                                </span>
+
+
+                            )
+
+                        )
+
+                        :
+
+                        null
+
+                    }
+
+
 
                 </div>
 
+
+
+
+
             </div>
 
+
+
+
         </aside>
+
     );
+
 }
