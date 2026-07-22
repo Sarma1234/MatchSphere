@@ -1,15 +1,23 @@
-export default function AboutSection() {
-  return (
-    <section className="discover-section glass">
 
-      <h2>About</h2>
+export default function AboutSection({ profile }) {
 
-      <p>
-        Passionate full-stack developer who enjoys building scalable
-        applications, participating in hackathons, and collaborating
-        with people who love solving real-world problems.
-      </p>
+    return (
 
-    </section>
-  );
+        <section className="discover-section glass">
+
+            <h2>About</h2>
+
+            <p>
+
+                {profile?.bio?.trim() ||
+
+                    "This user hasn't added a bio yet."}
+
+            </p>
+
+        </section>
+
+    );
+
 }
+

@@ -244,10 +244,16 @@ accountStatus: {
     enum: [
         "active",
         "suspended",
+        "deactivated",
         "blocked"
     ],
 
     default: "active",
+
+},
+deactivatedAt: {
+
+    type: Date,
 
 },
 
@@ -562,46 +568,134 @@ socialLinks: {
 /* -------------------------------------------------------------------------- */
 
 
-privacy: {
+settings: {
 
+    privacy: {
 
-    publicProfile: {
+        publicProfile: {
+            type: Boolean,
+            default: true,
+        },
 
-        type: Boolean,
+        showEmail: {
+            type: Boolean,
+            default: false,
+        },
 
-        default: true,
+        showSocialLinks: {
+            type: Boolean,
+            default: true,
+        },
+
+        allowMessages: {
+            type: Boolean,
+            default: true,
+        },
+
+        allowRequests: {
+            type: String,
+            enum: [
+                "everyone",
+                "matches",
+                "nobody",
+            ],
+            default: "everyone",
+        },
+
+        showOnlineStatus: {
+            type: Boolean,
+            default: true,
+        },
+
+        searchable: {
+            type: Boolean,
+            default: true,
+        },
 
     },
 
+    notifications: {
 
-    showEmail: {
+        newMatches: {
+            type: Boolean,
+            default: true,
+        },
 
-        type: Boolean,
+        connectionRequests: {
+            type: Boolean,
+            default: true,
+        },
 
-        default: false,
+        messages: {
+            type: Boolean,
+            default: true,
+        },
 
-    },
-
-
-    showSocialLinks: {
-
-        type: Boolean,
-
-        default: true,
-
-    },
-
-
-    allowMessages: {
-
-        type: Boolean,
-
-        default: true,
+        productUpdates: {
+            type: Boolean,
+            default: false,
+        },
 
     },
 
+    appearance: {
+
+        theme: {
+            type: String,
+            enum: [
+                "dark",
+                "midnight",
+                "auto",
+            ],
+            default: "dark",
+        },
+
+        accentColor: {
+            type: String,
+            enum: [
+                "purple",
+                "blue",
+                "cyan",
+                "pink",
+                "emerald",
+            ],
+            default: "purple",
+        },
+
+        glowIntensity: {
+            type: Number,
+            min: 0,
+            max: 100,
+            default: 70,
+        },
+
+        compactMode: {
+            type: Boolean,
+            default: false,
+        },
+
+        animations: {
+            type: Boolean,
+            default: true,
+        },
+
+    },
+
+    security: {
+
+        twoFactorEnabled: {
+            type: Boolean,
+            default: false,
+        },
+
+    },
 
 },
+
+/* -------------------------------------------------------------------------- */
+/*                          Account Lifecycle                                 */
+/* -------------------------------------------------------------------------- */
+
 
 
 

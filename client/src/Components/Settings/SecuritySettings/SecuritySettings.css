@@ -6,25 +6,22 @@
 
     background: rgba(255,255,255,0.06);
 
-    border: 1px solid rgba(124,156,255,0.22);
+    border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
 
     backdrop-filter: blur(18px);
 
     box-shadow:
-    0 0 25px rgba(124,156,255,0.08);
+        0 0 25px color-mix(in srgb, var(--primary) 20%, transparent);
 
     transition: 0.3s ease;
 
 }
 
-
 .security-settings-card:hover {
 
-    border-color: rgba(92,235,208,0.4);
+    border-color: var(--primary-light);
 
 }
-
-
 
 .security-options {
 
@@ -37,8 +34,6 @@
     gap: 16px;
 
 }
-
-
 
 .security-option {
 
@@ -60,17 +55,13 @@
 
 }
 
-
-
 .security-option:hover {
 
     transform: translateX(5px);
 
-    border-color: #7C9CFF;
+    border-color: var(--primary-light);
 
 }
-
-
 
 .security-option h3 {
 
@@ -78,19 +69,17 @@
 
     margin-bottom: 5px;
 
+    color: var(--text-primary);
+
 }
-
-
 
 .security-option p {
 
     font-size: 13px;
 
-    color: rgba(255,255,255,0.55);
+    color: var(--text-secondary);
 
 }
-
-
 
 .security-option button {
 
@@ -98,11 +87,11 @@
 
     border-radius: 12px;
 
-    border: 1px solid rgba(124,156,255,0.45);
+    border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
 
     background: transparent;
 
-    color: #7C9CFF;
+    color: var(--primary);
 
     cursor: pointer;
 
@@ -110,24 +99,18 @@
 
 }
 
-
-
 .security-option button:hover {
 
-    background: #7C9CFF;
+    background: var(--primary);
 
-    color: #0A0D24;
+    color: var(--background);
 
     box-shadow:
-
-    0 0 18px rgba(124,156,255,0.45);
+        0 0 18px color-mix(in srgb, var(--primary) 45%, transparent);
 
 }
 
-
-
 /* Security Toggle */
-
 
 .security-toggle {
 
@@ -141,15 +124,11 @@
 
 }
 
-
-
 .security-toggle input {
 
     display: none;
 
 }
-
-
 
 .security-toggle span {
 
@@ -167,8 +146,6 @@
 
 }
 
-
-
 .security-toggle span::before {
 
     content: "";
@@ -183,7 +160,7 @@
 
     left: 4px;
 
-    background: white;
+    background: var(--text-primary);
 
     border-radius: 50%;
 
@@ -191,28 +168,21 @@
 
 }
 
-
-
 .security-toggle input:checked + span {
 
-    background: #7C9CFF;
+    background: var(--primary);
 
 }
-
-
 
 .security-toggle input:checked + span::before {
 
     transform: translateX(20px);
 
-    background: #0A0D24;
+    background: var(--background);
 
 }
 
-
-
 /* Responsive */
-
 
 @media(max-width:500px) {
 
@@ -225,7 +195,6 @@
         gap: 15px;
 
     }
-
 
     .security-option button {
 

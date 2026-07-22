@@ -6,24 +6,22 @@
 
     background: rgba(255,255,255,0.06);
 
-    border: 1px solid rgba(124,156,255,0.22);
+    border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
 
     backdrop-filter: blur(18px);
 
     box-shadow:
-    0 0 25px rgba(124,156,255,0.08);
+        0 0 25px color-mix(in srgb, var(--primary) 20%, transparent);
 
-    transition: 0.3s ease;
+    transition: .3s ease;
 
 }
-
 
 .account-settings-card:hover {
 
-    border-color: rgba(92,235,208,0.4);
+    border-color: var(--primary-light);
 
 }
-
 
 .settings-section-title h2 {
 
@@ -33,17 +31,17 @@
 
     margin-bottom: 8px;
 
-}
+    color: var(--text-primary);
 
+}
 
 .settings-section-title p {
 
-    color: rgba(255,255,255,0.6);
+    color: var(--text-secondary);
 
     font-size: 14px;
 
 }
-
 
 .settings-options {
 
@@ -56,8 +54,6 @@
     gap: 16px;
 
 }
-
-
 
 .settings-option {
 
@@ -75,21 +71,20 @@
 
     border: 1px solid rgba(255,255,255,0.08);
 
-    transition: 0.3s ease;
+    transition: .3s ease;
 
 }
-
-
 
 .settings-option:hover {
 
     transform: translateX(5px);
 
-    border-color: #7C9CFF;
+    border-color: var(--primary-light);
+
+    box-shadow:
+        0 0 18px color-mix(in srgb, var(--primary) 20%, transparent);
 
 }
-
-
 
 .settings-option h3 {
 
@@ -99,19 +94,17 @@
 
     margin-bottom: 5px;
 
+    color: var(--text-primary);
+
 }
-
-
 
 .settings-option p {
 
     font-size: 13px;
 
-    color: rgba(255,255,255,0.55);
+    color: var(--text-secondary);
 
 }
-
-
 
 .settings-option button {
 
@@ -119,34 +112,182 @@
 
     border-radius: 12px;
 
-    border: 1px solid rgba(124,156,255,0.4);
+    border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
 
     background: transparent;
 
-    color: #7C9CFF;
+    color: var(--primary);
 
     cursor: pointer;
 
-    transition: 0.3s ease;
+    transition: .3s ease;
 
 }
-
-
 
 .settings-option button:hover {
 
-    background: #7C9CFF;
+    background: var(--primary);
 
-    color: #0A0D24;
+    color: var(--background);
 
     box-shadow:
-    0 0 15px rgba(124,156,255,0.5);
+        0 0 15px color-mix(in srgb, var(--primary) 40%, transparent);
 
 }
 
+/* -------------------------------------------------------------------------- */
+/*                              Form Fields                                   */
+/* -------------------------------------------------------------------------- */
 
+.settings-field {
 
-/* Responsive */
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.settings-field label {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--text-secondary);
+
+}
+
+.settings-field input,
+
+.settings-field select {
+
+    width: 100%;
+
+    padding: 12px 16px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    background: rgba(255,255,255,0.05);
+
+    color: var(--text-primary);
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: .3s ease;
+
+    backdrop-filter: blur(12px);
+
+}
+
+.settings-field input::placeholder {
+
+    color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+
+}
+
+.settings-field input:focus,
+
+.settings-field select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 18px color-mix(in srgb, var(--primary) 30%, transparent);
+
+}
+
+.settings-field select {
+
+    cursor: pointer;
+
+}
+
+.settings-field select option {
+
+    background: var(--background);
+
+    color: var(--text-primary);
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Save Button                                  */
+/* -------------------------------------------------------------------------- */
+
+.settings-save-btn {
+
+    margin-top: 10px;
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    color: var(--background);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+.settings-save-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 24px color-mix(in srgb, var(--primary) 40%, transparent);
+
+}
+
+.settings-save-btn:active {
+
+    transform: scale(.98);
+
+}
+
+.settings-save-btn:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Responsive                                   */
+/* -------------------------------------------------------------------------- */
+
+@media(max-width:500px) {
+
+    .settings-field input,
+
+    .settings-field select {
+
+        font-size: 13px;
+
+    }
+
+}
 
 @media(max-width:500px) {
 
@@ -159,7 +300,6 @@
         gap: 15px;
 
     }
-
 
     .settings-option button {
 

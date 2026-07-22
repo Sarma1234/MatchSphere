@@ -1,79 +1,101 @@
-.cta{
-
-    padding:120px 7%;
-
+.cta {
+    padding: 120px 7%;
 }
 
-.cta-box{
+.cta-box {
+    padding: 80px;
 
-    background:linear-gradient(135deg,#6D8DFF,#7C4DFF);
+    text-align: center;
 
-    border-radius:35px;
+    border-radius: 35px;
 
-    padding:80px;
+    background: linear-gradient(
+        135deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+    );
 
-    text-align:center;
-
+    box-shadow:
+        0 24px 50px rgba(var(--accent-primary-rgb), .22);
 }
 
-.cta-tag{
+.cta-tag {
+    margin-bottom: 20px;
 
-    color:#E6EAFF;
+    color: var(--text-primary);
 
-    letter-spacing:3px;
+    opacity: .85;
 
-    margin-bottom:20px;
+    letter-spacing: 3px;
 
+    font-weight: 600;
 }
 
-.cta-box h2{
+.cta-box h2 {
+    margin-bottom: 25px;
 
-    color:white;
+    color: var(--text-primary);
 
-    font-size:52px;
-
-    margin-bottom:25px;
-
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 52px;
 }
 
-.cta-description{
+.cta-description {
+    max-width: 650px;
 
-    color:#E8E8FF;
+    margin: 0 auto 40px;
 
-    max-width:650px;
+    color: var(--text-primary);
 
-    margin:auto;
+    opacity: .85;
 
-    line-height:1.8;
-
-    margin-bottom:40px;
-
+    line-height: 1.8;
 }
 
-.cta-btn{
+.cta-btn {
+    padding: 18px 40px;
 
-    padding:18px 40px;
+    border: none;
+    border-radius: 50px;
 
-    border:none;
+    background: var(--text-primary);
 
-    border-radius:50px;
+    color: var(--accent-primary);
 
-    background:white;
+    font-size: 16px;
+    font-weight: 700;
 
-    color:#5B5BFF;
+    cursor: pointer;
 
-    font-weight:700;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    transition:.3s;
-
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
 }
 
-.cta-btn:hover{
+.cta-btn:hover {
+    transform: translateY(-4px);
 
-    transform:translateY(-4px);
+    box-shadow:
+        0 18px 35px rgba(var(--accent-primary-rgb), .30);
+}
+
+@media (max-width: 768px) {
+
+    .cta {
+        padding: 80px 20px;
+    }
+
+    .cta-box {
+        padding: 48px 28px;
+    }
+
+    .cta-box h2 {
+        font-size: 2rem;
+    }
+
+    .cta-btn {
+        width: 100%;
+    }
 
 }

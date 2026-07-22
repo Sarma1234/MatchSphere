@@ -12,13 +12,14 @@
 
     padding: 16px 18px;
 
-    border: 1px solid rgba(255,255,255,.08);
+    border: 1px solid var(--border);
     border-radius: 22px;
 
-    background: rgba(10,13,36,.82);
+    background: color-mix(in srgb, var(--background) 85%, transparent);
+
     backdrop-filter: blur(22px);
 
-    box-shadow: 0 20px 45px rgba(0,0,0,.35);
+    box-shadow: var(--shadow);
 
     z-index: 1000;
 }
@@ -41,34 +42,40 @@
 
 .draft-btn
 {
-    background: rgba(255,255,255,.08);
+    background: var(--surface-light);
 
-    color: #FFFFFF;
+    color: var(--text-primary);
+
+    border: 1px solid var(--border);
 }
 
 .draft-btn:hover
 {
-    background: rgba(255,255,255,.14);
+    border-color: var(--primary);
+
+    background: color-mix(in srgb, var(--primary) 10%, var(--surface-light));
+
+    box-shadow: var(--shadow);
 }
 
 .continue-btn
 {
     background: linear-gradient(
         135deg,
-        #7C9CFF,
-        #5CEBD0
+        var(--primary),
+        var(--primary-light)
     );
 
-    color: #FFFFFF;
+    color: var(--text-primary);
 
-    box-shadow: 0 10px 25px rgba(124,156,255,.30);
+    box-shadow: var(--shadow);
 }
 
 .continue-btn:hover
 {
     transform: translateY(-2px);
 
-    box-shadow: 0 14px 30px rgba(124,156,255,.40);
+    box-shadow: 0 0 24px color-mix(in srgb, var(--primary) 45%, transparent);
 }
 
 @media (max-width:768px)

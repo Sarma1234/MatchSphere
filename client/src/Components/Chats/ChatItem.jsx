@@ -1,25 +1,85 @@
 import OnlineStatus from "./OnlineStatus";
 
 export default function ChatItem({
+
     chat,
+
     isActive,
-    onClick
+
+    onClick,
+
 }) {
+
+    const otherUser =
+        chat.otherUser || {};
+
+    const avatar =
+        otherUser.photos?.find(
+            (photo) => photo.isPrimary
+        )?.url ||
+
+        otherUser.photos?.[0]?.url ||
+
+        "https://ui-avatars.com/api/?name=" +
+        encodeURIComponent(
+            otherUser.fullName || "User"
+        );
+
+    const lastMessage =
+        chat.lastMessage?.content ||
+
+        "Start your conversation";
+
+    const time = chat.lastMessage?.createdAt
+        ? new Date(
+              chat.lastMessage.createdAt
+          ).toLocaleTimeString([], {
+
+              hour: "2-digit",
+
+              minute: "2-digit",
+
+          })
+        : "";
+
+    const purpose =
+        chat.purpose
+            ?.replace(/_/g, " ")
+            ?.replace(/\b\w/g, (c) =>
+                c.toUpperCase()
+            );
+
     return (
+
         <div
-            className={`chat-item ${isActive ? "active" : ""}`}
+
+            className={`chat-item ${
+
+                isActive ? "active" : ""
+
+            }`}
+
             onClick={onClick}
+
         >
 
             <div className="chat-avatar-wrapper">
 
                 <img
-                    src={chat.avatar}
-                    alt={chat.name}
+
+                    src={avatar}
+
+                    alt={otherUser.fullName}
+
                     className="chat-avatar"
+
                 />
 
-                <OnlineStatus online={chat.online} />
+                <OnlineStatus
+
+                    online={otherUser.isOnline}
+
+                />
 
             </div>
 
@@ -27,28 +87,42 @@ export default function ChatItem({
 
                 <div className="chat-top-row">
 
-                    <h4>{chat.name}</h4>
+                    <h4>
+
+                        {otherUser.fullName}
+
+                    </h4>
 
                     <span className="chat-time">
-                        {chat.time}
+
+                        {time}
+
                     </span>
 
                 </div>
 
                 <span className="chat-purpose">
-                    {chat.purpose}
+
+                    {purpose}
+
                 </span>
 
                 <div className="chat-bottom-row">
 
                     <p>
-                        {chat.lastMessage}
+
+                        {lastMessage}
+
                     </p>
 
-                    {chat.unread > 0 && (
+                    {chat.unreadCount > 0 && (
+
                         <div className="chat-unread">
-                            {chat.unread}
+
+                            {chat.unreadCount}
+
                         </div>
+
                     )}
 
                 </div>
@@ -56,5 +130,7 @@ export default function ChatItem({
             </div>
 
         </div>
+
     );
+
 }

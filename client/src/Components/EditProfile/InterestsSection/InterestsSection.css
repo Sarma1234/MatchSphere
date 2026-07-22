@@ -1,18 +1,16 @@
-.interests-section
-{
+.interests-section {
     padding: 32px;
 
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid var(--border);
     border-radius: 24px;
 
-    background: rgba(255,255,255,0.05);
+    background: var(--surface);
     backdrop-filter: blur(18px);
 
-    box-shadow: 0 15px 40px rgba(0,0,0,.28);
+    box-shadow: var(--shadow);
 }
 
-.selected-interests
-{
+.selected-interests {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
@@ -20,32 +18,29 @@
     margin-top: 28px;
 }
 
-.interests-subtitle
-{
+.interests-subtitle {
     margin: 32px 0 18px;
 
-    color: rgba(255,255,255,.75);
+    color: var(--text-secondary);
 
     font-family: "Space Grotesk", sans-serif;
 }
 
-.interest-grid
-{
+.interest-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
 }
 
-.interest-pill
-{
+.interest-pill {
     padding: 13px 22px;
 
-    border: 1px solid rgba(255,255,255,.08);
+    border: 1px solid var(--border);
     border-radius: 999px;
 
-    background: rgba(255,255,255,.05);
+    background: var(--surface-light);
 
-    color: rgba(255,255,255,.82);
+    color: var(--text-secondary);
 
     font-size: .95rem;
     font-family: "Inter", sans-serif;
@@ -55,41 +50,38 @@
     transition: .3s ease;
 }
 
-.interest-pill:hover
-{
+.interest-pill:hover {
     transform: translateY(-2px);
 
-    border-color: #7C9CFF;
+    border-color: var(--primary);
 
-    background: rgba(124,156,255,.10);
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
 
-    color: #FFFFFF;
+    color: var(--text-primary);
+
+    box-shadow: 0 0 18px color-mix(in srgb, var(--primary) 25%, transparent);
 }
 
-.interest-pill.active
-{
-    border-color: #7C9CFF;
+.interest-pill.active {
+    border-color: var(--primary);
 
     background: linear-gradient(
         135deg,
-        rgba(124,156,255,.22),
-        rgba(92,235,208,.18)
+        color-mix(in srgb, var(--primary) 28%, transparent),
+        color-mix(in srgb, var(--primary-light) 18%, transparent)
     );
 
-    color: #FFFFFF;
+    color: var(--text-primary);
 
-    box-shadow: 0 0 20px rgba(124,156,255,.20);
+    box-shadow: var(--shadow);
 }
 
-@media (max-width:768px)
-{
-    .interests-section
-    {
+@media (max-width:768px) {
+    .interests-section {
         padding: 24px;
     }
 
-    .interest-pill
-    {
+    .interest-pill {
         width: 100%;
         justify-content: center;
     }

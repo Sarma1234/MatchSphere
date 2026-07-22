@@ -6,26 +6,22 @@
 
     background: rgba(255,255,255,0.06);
 
-    border: 1px solid rgba(124,156,255,0.22);
+    border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
 
     backdrop-filter: blur(18px);
 
     box-shadow:
-    0 0 25px rgba(124,156,255,0.08);
+        0 0 25px color-mix(in srgb, var(--primary) 20%, transparent);
 
     transition: 0.3s ease;
 
 }
 
-
-
 .privacy-settings-card:hover {
 
-    border-color: rgba(92,235,208,0.4);
+    border-color: var(--primary-light);
 
 }
-
-
 
 .privacy-options {
 
@@ -38,8 +34,6 @@
     gap: 16px;
 
 }
-
-
 
 .privacy-option {
 
@@ -61,15 +55,11 @@
 
 }
 
-
-
 .privacy-option:hover {
 
-    border-color: #5CEBD0;
+    border-color: var(--primary-light);
 
 }
-
-
 
 .privacy-option h3 {
 
@@ -77,22 +67,19 @@
 
     margin-bottom: 5px;
 
+    color: var(--text-primary);
+
 }
-
-
 
 .privacy-option p {
 
     font-size: 13px;
 
-    color: rgba(255,255,255,0.55);
+    color: var(--text-secondary);
 
 }
 
-
-
 /* Toggle */
-
 
 .toggle {
 
@@ -106,15 +93,11 @@
 
 }
 
-
-
 .toggle input {
 
     display: none;
 
 }
-
-
 
 .toggle span {
 
@@ -132,8 +115,6 @@
 
 }
 
-
-
 .toggle span::before {
 
     content: "";
@@ -150,34 +131,27 @@
 
     border-radius: 50%;
 
-    background: white;
+    background: var(--text-primary);
 
     transition: 0.3s ease;
 
 }
 
-
-
 .toggle input:checked + span {
 
-    background: #5CEBD0;
+    background: var(--primary);
 
 }
-
-
 
 .toggle input:checked + span::before {
 
     transform: translateX(20px);
 
-    background: #0A0D24;
+    background: var(--background);
 
 }
 
-
-
 /* Select */
-
 
 .privacy-option select {
 
@@ -187,28 +161,31 @@
 
     background: rgba(255,255,255,0.08);
 
-    color: white;
+    color: var(--text-primary);
 
-    border: 1px solid rgba(124,156,255,0.35);
+    border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
 
     outline: none;
 
 }
 
+.privacy-option select:focus {
 
+    border-color: var(--primary);
 
-.privacy-option select option {
-
-    background: #0A0D24;
-
-    color: white;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
 
 }
 
+.privacy-option select option {
 
+    background: var(--background);
+
+    color: var(--text-primary);
+
+}
 
 /* Responsive */
-
 
 @media(max-width:500px) {
 
@@ -221,7 +198,6 @@
         gap: 15px;
 
     }
-
 
     .privacy-option select {
 

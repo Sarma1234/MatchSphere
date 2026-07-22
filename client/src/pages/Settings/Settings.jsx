@@ -1,13 +1,13 @@
 import "./Settings.css";
 
 import SettingsHeader from "../../components/Settings/SettingsHeader/SettingsHeader";
+
 import AccountSettings from "../../components/Settings/AccountSettings/AccountSettings";
 import PrivacySettings from "../../components/Settings/PrivacySettings/PrivacySettings";
 import NotificationSettings from "../../components/Settings/NotificationSettings/NotificationSettings";
 import AppearanceSettings from "../../components/Settings/AppearanceSettings/AppearanceSettings";
 import SecuritySettings from "../../components/Settings/SecuritySettings/SecuritySettings";
 import DangerZone from "../../components/Settings/DangerZone/DangerZone";
-
 
 export default function Settings() {
 
@@ -19,7 +19,7 @@ export default function Settings() {
 
                 <SettingsHeader />
 
-                <div className="settings-grid">
+                <section className="settings-grid">
 
                     <AccountSettings />
 
@@ -33,7 +33,7 @@ export default function Settings() {
 
                     <DangerZone />
 
-                </div>
+                </section>
 
             </div>
 

@@ -14,11 +14,15 @@ body{
 
     font-family:"Inter",sans-serif;
 
-    background:#060816;
+    background:var(--background);
 
-    color:white;
+    color:var(--text-primary);
 
     overflow-x:hidden;
+
+    transition:
+        background .35s ease,
+        color .35s ease;
 
 }
 
@@ -31,11 +35,25 @@ body::before{
     inset:0;
 
     background:
-        radial-gradient(circle at 15% 20%, rgba(124,156,255,.28), transparent 28%),
-        radial-gradient(circle at 85% 15%, rgba(124,77,255,.22), transparent 30%),
-        radial-gradient(circle at 50% 80%, rgba(92,235,208,.12), transparent 32%);
+        radial-gradient(
+            circle at 15% 20%,
+            color-mix(in srgb, var(--primary) 28%, transparent),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            color-mix(in srgb, var(--primary-light) 22%, transparent),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 80%,
+            color-mix(in srgb, var(--primary) 14%, transparent),
+            transparent 32%
+        );
 
     z-index:-2;
+
+    transition:background .35s ease;
 
 }
 
@@ -48,8 +66,8 @@ body::after{
     inset:0;
 
     background:
-    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
 
     background-size:70px 70px;
 
@@ -62,6 +80,7 @@ body::after{
 button{
 
     font-family:inherit;
+
 }
 
 a{
@@ -69,9 +88,39 @@ a{
     text-decoration:none;
 
     color:inherit;
+
 }
 
 li{
 
     list-style:none;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:var(--background);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-light);
+
 }

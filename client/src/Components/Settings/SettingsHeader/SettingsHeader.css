@@ -8,12 +8,12 @@
 
     background: rgba(255,255,255,0.06);
 
-    border: 1px solid rgba(124,156,255,0.25);
+    border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
 
     backdrop-filter: blur(18px);
 
     box-shadow:
-    0 0 30px rgba(124,156,255,0.08);
+        0 0 30px color-mix(in srgb, var(--primary) 20%, transparent);
 
     display: flex;
 
@@ -25,7 +25,6 @@
 
 }
 
-
 .settings-profile {
 
     display: flex;
@@ -35,7 +34,6 @@
     gap: 22px;
 
 }
-
 
 .settings-avatar {
 
@@ -47,13 +45,12 @@
 
     overflow: hidden;
 
-    border: 2px solid #7C9CFF;
+    border: 2px solid var(--primary);
 
     box-shadow:
-    0 0 25px rgba(124,156,255,0.45);
+        0 0 25px color-mix(in srgb, var(--primary) 45%, transparent);
 
 }
-
 
 .settings-avatar img {
 
@@ -65,7 +62,6 @@
 
 }
 
-
 .settings-user-info h1 {
 
     font-family: "Space Grotesk", sans-serif;
@@ -74,17 +70,17 @@
 
     margin-bottom: 8px;
 
-}
+    color: var(--text-primary);
 
+}
 
 .settings-user-info p {
 
-    color: rgba(255,255,255,0.65);
+    color: var(--text-secondary);
 
     font-size: 15px;
 
 }
-
 
 .account-status {
 
@@ -96,12 +92,11 @@
 
     gap: 8px;
 
-    color: #5CEBD0;
+    color: var(--primary-light);
 
     font-size: 14px;
 
 }
-
 
 .account-status span {
 
@@ -111,13 +106,12 @@
 
     border-radius: 50%;
 
-    background: #5CEBD0;
+    background: var(--primary-light);
 
     box-shadow:
-    0 0 12px #5CEBD0;
+        0 0 12px var(--primary-light);
 
 }
-
 
 .settings-summary {
 
@@ -126,7 +120,6 @@
     gap: 18px;
 
 }
-
 
 .summary-item {
 
@@ -142,19 +135,20 @@
 
     border: 1px solid rgba(255,255,255,0.08);
 
-    transition: 0.3s ease;
+    transition: .3s ease;
 
 }
-
 
 .summary-item:hover {
 
     transform: translateY(-5px);
 
-    border-color: #5CEBD0;
+    border-color: var(--primary-light);
+
+    box-shadow:
+        0 0 20px color-mix(in srgb, var(--primary) 25%, transparent);
 
 }
-
 
 .summary-item h3 {
 
@@ -162,10 +156,9 @@
 
     font-size: 24px;
 
-    color: #7C9CFF;
+    color: var(--primary);
 
 }
-
 
 .summary-item p {
 
@@ -173,10 +166,9 @@
 
     font-size: 13px;
 
-    color: rgba(255,255,255,0.6);
+    color: var(--text-secondary);
 
 }
-
 
 /* Responsive */
 
@@ -190,7 +182,6 @@
 
     }
 
-
     .settings-summary {
 
         width: 100%;
@@ -200,7 +191,6 @@
     }
 
 }
-
 
 @media(max-width:500px) {
 
@@ -212,13 +202,11 @@
 
     }
 
-
     .settings-summary {
 
         flex-direction: column;
 
     }
-
 
     .summary-item {
 

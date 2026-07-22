@@ -1,13 +1,29 @@
 import "./EmptyState.css";
 
+import { useNavigate } from "react-router-dom";
+
 import {
     UserSearch,
     Compass,
     ArrowRight
 } from "lucide-react";
 
-export default function EmptyState() {
+export default function EmptyState({
+
+    title = "No Connections Yet",
+
+    description = "You don't have any requests or matches at the moment. Explore Discover to find like-minded people and start building meaningful connections.",
+
+    showRefresh = false,
+
+    onRefresh,
+
+}) {
+
+    const navigate = useNavigate();
+
     return (
+
         <section className="empty-state">
 
             <div className="empty-icon">
@@ -17,18 +33,23 @@ export default function EmptyState() {
             </div>
 
             <h2>
-                No Connections Yet
+
+                {title}
+
             </h2>
 
             <p>
-                You don't have any requests or matches at the moment.
-                Explore Discover to find like-minded people and start
-                building meaningful connections.
+
+                {description}
+
             </p>
 
             <div className="empty-actions">
 
-                <button className="discover-btn">
+                <button
+                    className="discover-btn"
+                    onClick={() => navigate("/discover")}
+                >
 
                     <Compass size={18} />
 
@@ -36,16 +57,25 @@ export default function EmptyState() {
 
                 </button>
 
-                <button className="refresh-btn">
+                {showRefresh && (
 
-                    Refresh
+                    <button
+                        className="refresh-btn"
+                        onClick={onRefresh}
+                    >
 
-                    <ArrowRight size={18} />
+                        Refresh
 
-                </button>
+                        <ArrowRight size={18} />
+
+                    </button>
+
+                )}
 
             </div>
 
         </section>
+
     );
+
 }

@@ -16,9 +16,11 @@
 
     border-radius:24px;
 
-    background:rgba(255,255,255,.06);
+    background:var(--surface);
 
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
 
 }
 
@@ -34,9 +36,7 @@
 
 .discover-section p{
 
-    color:#9AA1C9;
-
-    line-height:1.8;
+    color:var(--text-secondary);
 
 }
 
@@ -52,20 +52,13 @@
 
 .skill-chip{
 
-    padding:12px 20px;
+    background:color-mix(in srgb,var(--primary) 15%,transparent);
 
-    border-radius:999px;
+    color:var(--primary);
 
-    background:rgba(124,156,255,.12);
-
-    color:#7C9CFF;
-
-    border:1px solid rgba(124,156,255,.3);
-
-    font-weight:600;
+    border:1px solid color-mix(in srgb,var(--primary) 35%,transparent);
 
 }
-
 .purpose-grid{
 
     display:grid;
@@ -78,19 +71,14 @@
 
 .purpose-card{
 
-    padding:22px;
+    background:color-mix(in srgb,var(--surface) 85%,transparent);
 
-    border-radius:18px;
-
-    background:rgba(255,255,255,.04);
+    border:1px solid var(--border);
 
 }
-
 .purpose-card h4{
 
-    color:#5CEBD0;
-
-    margin-bottom:8px;
+    color:var(--primary);
 
 }
 
@@ -164,5 +152,131 @@
     gap: 28px;
 
     padding-bottom: 140px;
+
+}
+/* -------------------------------------------------------------------------- */
+/*                        Compatibility Section                               */
+/* -------------------------------------------------------------------------- */
+
+.compatibility-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:32px;
+
+}
+
+.compatibility-circle{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    color:white;
+
+    font-family:'Space Grotesk',sans-serif;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    box-shadow:var(--shadow);
+
+}
+.compatibility-info{
+
+    flex:1;
+
+}
+
+.compatibility-info h3{
+
+    font-family:'Space Grotesk',sans-serif;
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+    color:#EEF0FB;
+
+}
+
+.compatibility-info p{
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+}
+
+.compatibility-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:22px;
+
+}
+
+.compatibility-tag{
+
+    background:color-mix(in srgb,var(--primary) 15%,transparent);
+
+    border:1px solid color-mix(in srgb,var(--primary) 35%,transparent);
+
+    color:var(--primary);
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Mobile                                      */
+/* -------------------------------------------------------------------------- */
+
+@media(max-width:768px){
+
+    .compatibility-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .compatibility-circle{
+
+        width:110px;
+
+        height:110px;
+
+        font-size:28px;
+
+    }
+
+    .compatibility-info h3{
+
+        font-size:24px;
+
+    }
 
 }

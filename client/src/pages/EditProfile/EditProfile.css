@@ -1,64 +1,32 @@
-.edit-profile-page
-{
+.edit-profile-page {
     min-height: 100vh;
     padding: 120px 7% 140px;
-    background: #0A0D24;
+    background: var(--bg-primary);
 }
 
-.edit-profile-container
-{
+.edit-profile-container {
     display: grid;
     grid-template-columns: 1.7fr 0.9fr;
     gap: 32px;
     align-items: flex-start;
 }
 
-.edit-profile-content
-{
+.edit-profile-content {
     display: flex;
     flex-direction: column;
     gap: 28px;
 }
 
-.edit-profile-preview
-{
+.edit-profile-preview {
     position: sticky;
     top: 110px;
 }
 
-@media (max-width: 1100px)
-{
-    .edit-profile-container
-    {
-        grid-template-columns: 1fr;
-    }
+/* -------------------------------------------------------------------------- */
+/*                                 Top Bar                                    */
+/* -------------------------------------------------------------------------- */
 
-    .edit-profile-preview
-    {
-        position: static;
-        order: -1;
-    }
-}
-
-@media (max-width: 768px)
-{
-    .edit-profile-page
-    {
-        padding: 100px 20px 120px;
-    }
-
-    .edit-profile-container
-    {
-        gap: 24px;
-    }
-
-    .edit-profile-content
-    {
-        gap: 24px;
-    }
-}
-.edit-profile-topbar
-{
+.edit-profile-topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,81 +34,114 @@
     margin-bottom: 32px;
 }
 
-.edit-profile-heading
-{
+.edit-profile-heading {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 8px;
 }
 
-.edit-profile-heading h1
-{
+.edit-profile-heading h1 {
     margin: 0;
-    color: #FFFFFF;
+    color: var(--text-primary);
     font-family: "Space Grotesk", sans-serif;
     font-size: 2rem;
     font-weight: 700;
 }
 
-.edit-profile-heading p
-{
+.edit-profile-heading p {
     margin: 0;
-    color: rgba(255,255,255,0.70);
-    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-size: .95rem;
     text-align: right;
 }
 
-.back-profile-btn
-{
+/* -------------------------------------------------------------------------- */
+/*                               Back Button                                  */
+/* -------------------------------------------------------------------------- */
+
+.back-profile-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+
     padding: 14px 24px;
-    border: 1px solid rgba(124,156,255,0.30);
+
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 30%, transparent);
     border-radius: 18px;
-    background: rgba(255,255,255,0.05);
-    color: #FFFFFF;
+
+    background: var(--glass-bg);
+
+    color: var(--text-primary);
+
     cursor: pointer;
+
     font-family: "Inter", sans-serif;
-    font-size: 0.95rem;
+    font-size: .95rem;
     font-weight: 600;
+
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+
     transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
 }
 
-.back-profile-btn:hover
-{
+.back-profile-btn:hover {
     transform: translateY(-3px);
-    border-color: rgba(92,235,208,0.45);
+
+    border-color: color-mix(in srgb, var(--accent-secondary) 45%, transparent);
+
     box-shadow:
-        0 16px 32px rgba(92,235,208,0.18);
+        0 16px 32px color-mix(in srgb, var(--accent-secondary) 18%, transparent);
 }
 
-@media (max-width: 768px)
-{
-    .edit-profile-topbar
-    {
+/* -------------------------------------------------------------------------- */
+/*                               Responsive                                   */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width:1100px) {
+
+    .edit-profile-container {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-profile-preview {
+        position: static;
+        order: -1;
+    }
+}
+
+@media (max-width:768px) {
+
+    .edit-profile-page {
+        padding: 100px 20px 120px;
+    }
+
+    .edit-profile-container {
+        gap: 24px;
+    }
+
+    .edit-profile-content {
+        gap: 24px;
+    }
+
+    .edit-profile-topbar {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .edit-profile-heading
-    {
+    .edit-profile-heading {
         align-items: flex-start;
     }
 
-    .edit-profile-heading p
-    {
+    .edit-profile-heading p {
         text-align: left;
     }
 
-    .back-profile-btn
-    {
+    .back-profile-btn {
         width: 100%;
         justify-content: center;
     }

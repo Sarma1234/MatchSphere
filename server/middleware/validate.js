@@ -1,30 +1,97 @@
 const ApiError = require("../utils/ApiError");
 
 const validate = (schema) => {
+
     return (req, res, next) => {
 
-        const result = schema.safeParse(req.body);
+        // Zod schema
+        if (typeof schema.safeParse === "function") {
 
-        if (!result.success) {
-            console.log(JSON.stringify(result.error.issues, null, 2));
+            const result = schema.safeParse(req.body);
 
-            const errors = result.error.issues.map(
-                issue => issue.message
-            );
+            if (!result.success) {
 
-            return next(
-                new ApiError(
-                    400,
-                    "Validation Failed",
-                    errors
-                )
-            );
+                return next(
+
+                    new ApiError(
+
+                        400,
+
+                        "Validation Failed",
+
+                        result.error.issues.map(
+                            issue => issue.message
+                        )
+
+                    )
+
+                );
+
+            }
+
+            req.body = result.data;
+
+            return next();
+
         }
 
-        req.body = result.data;
+        // Joi schema
+        if (typeof schema.validate === "function") {
 
-        next();
+            const { error, value } = schema.validate(
+
+                req.body,
+
+                {
+
+                    abortEarly: false,
+
+                    stripUnknown: true,
+
+                }
+
+            );
+
+            if (error) {
+
+                return next(
+
+                    new ApiError(
+
+                        400,
+
+                        "Validation Failed",
+
+                        error.details.map(
+                            detail => detail.message
+                        )
+
+                    )
+
+                );
+
+            }
+
+            req.body = value;
+
+            return next();
+
+        }
+
+        return next(
+
+            new ApiError(
+
+                500,
+
+                "Invalid validation schema supplied."
+
+            )
+
+        );
+
     };
+
 };
 
 module.exports = validate;

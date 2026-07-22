@@ -2,16 +2,19 @@
 
     min-height: 100vh;
 
-    background: #0A0D24;
+    background: var(--background);
+
+    color: var(--text-primary);
 
     padding: 40px 60px;
 
-    color: white;
-
     font-family: "Inter", sans-serif;
 
-}
+    transition:
+        background .3s ease,
+        color .3s ease;
 
+}
 
 .settings-container {
 
@@ -20,7 +23,6 @@
     margin: auto;
 
 }
-
 
 .settings-grid {
 
@@ -34,8 +36,27 @@
 
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               Compact Mode                                 */
+/* -------------------------------------------------------------------------- */
 
-/* Responsive */
+.compact-mode .settings-page {
+
+    padding: 24px 36px;
+
+}
+
+.compact-mode .settings-grid {
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Responsive                                  */
+/* -------------------------------------------------------------------------- */
 
 @media (max-width: 900px) {
 
@@ -45,7 +66,6 @@
 
     }
 
-
     .settings-grid {
 
         grid-template-columns: 1fr;
@@ -53,7 +73,6 @@
     }
 
 }
-
 
 @media (max-width: 500px) {
 

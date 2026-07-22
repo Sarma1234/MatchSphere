@@ -1,50 +1,167 @@
 import "./PrivacySettings.css";
 
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
+
+import {
+    getMyProfile,
+    updatePrivacySettings,
+} from "../../../services/userService";
 
 export default function PrivacySettings() {
+
+    const [privacy, setPrivacy] = useState({
+
+        publicProfile: true,
+
+        showEmail: false,
+
+        showSocialLinks: true,
+
+        allowMessages: true,
+
+    });
+
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+
+        fetchPrivacySettings();
+
+    }, []);
+
+    const fetchPrivacySettings = async () => {
+
+        try {
+
+            const response = await getMyProfile();
+
+            setPrivacy({
+
+                ...response.data.privacy,
+
+            });
+
+        }
+
+        catch (error) {
+
+            toast.error(
+
+                "Failed to load privacy settings."
+
+            );
+
+        }
+
+    };
+
+    const handleToggle = async (field) => {
+
+        const updated = {
+
+            ...privacy,
+
+            [field]: !privacy[field],
+
+        };
+
+        setPrivacy(updated);
+
+        try {
+
+            setLoading(true);
+
+            await updatePrivacySettings(updated);
+
+            toast.success(
+
+                "Privacy settings updated."
+
+            );
+
+        }
+
+        catch (error) {
+
+            setPrivacy(privacy);
+
+            toast.error(
+
+                "Failed to update privacy settings."
+
+            );
+
+        }
+
+        finally {
+
+            setLoading(false);
+
+        }
+
+    };
 
     return (
 
         <div className="privacy-settings-card">
 
-
             <div className="settings-section-title">
 
                 <h2>
+
                     Privacy Settings
+
                 </h2>
 
                 <p>
+
                     Control who can discover and interact with you
+
                 </p>
 
             </div>
 
-
-
             <div className="privacy-options">
 
-
                 <div className="privacy-option">
 
                     <div>
 
                         <h3>
-                            Profile Visibility
+
+                            Public Profile
+
                         </h3>
 
                         <p>
-                            Allow others to view your profile
+
+                            Allow other users to view your profile.
+
                         </p>
 
                     </div>
 
-
                     <label className="toggle">
 
                         <input
+
                             type="checkbox"
-                            defaultChecked
+
+                            checked={privacy.publicProfile}
+
+                            onChange={() =>
+
+                                handleToggle(
+
+                                    "publicProfile"
+
+                                )
+
+                            }
+
+                            disabled={loading}
+
                         />
 
                         <span></span>
@@ -53,65 +170,44 @@ export default function PrivacySettings() {
 
                 </div>
 
-
-
-
                 <div className="privacy-option">
 
                     <div>
 
                         <h3>
-                            Connection Requests
+
+                            Show Email Address
+
                         </h3>
 
                         <p>
-                            Who can send you connection requests
+
+                            Display your email on your public profile.
+
                         </p>
 
                     </div>
-
-
-                    <select>
-
-                        <option>
-                            Everyone
-                        </option>
-
-                        <option>
-                            Matches Only
-                        </option>
-
-                        <option>
-                            Nobody
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-
-                <div className="privacy-option">
-
-                    <div>
-
-                        <h3>
-                            Online Status
-                        </h3>
-
-                        <p>
-                            Show when you are active
-                        </p>
-
-                    </div>
-
 
                     <label className="toggle">
 
                         <input
+
                             type="checkbox"
-                            defaultChecked
+
+                            checked={privacy.showEmail}
+
+                            onChange={() =>
+
+                                handleToggle(
+
+                                    "showEmail"
+
+                                )
+
+                            }
+
+                            disabled={loading}
+
                         />
 
                         <span></span>
@@ -120,29 +216,44 @@ export default function PrivacySettings() {
 
                 </div>
 
-
-
-
                 <div className="privacy-option">
 
                     <div>
 
                         <h3>
-                            Search Visibility
+
+                            Show Social Links
+
                         </h3>
 
                         <p>
-                            Allow your profile to appear in discovery
+
+                            Allow others to view your linked social profiles.
+
                         </p>
 
                     </div>
 
-
                     <label className="toggle">
 
                         <input
+
                             type="checkbox"
-                            defaultChecked
+
+                            checked={privacy.showSocialLinks}
+
+                            onChange={() =>
+
+                                handleToggle(
+
+                                    "showSocialLinks"
+
+                                )
+
+                            }
+
+                            disabled={loading}
+
                         />
 
                         <span></span>
@@ -151,9 +262,53 @@ export default function PrivacySettings() {
 
                 </div>
 
+                <div className="privacy-option">
+
+                    <div>
+
+                        <h3>
+
+                            Allow Messages
+
+                        </h3>
+
+                        <p>
+
+                            Let other users send you direct messages.
+
+                        </p>
+
+                    </div>
+
+                    <label className="toggle">
+
+                        <input
+
+                            type="checkbox"
+
+                            checked={privacy.allowMessages}
+
+                            onChange={() =>
+
+                                handleToggle(
+
+                                    "allowMessages"
+
+                                )
+
+                            }
+
+                            disabled={loading}
+
+                        />
+
+                        <span></span>
+
+                    </label>
+
+                </div>
 
             </div>
-
 
         </div>
 

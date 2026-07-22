@@ -5,24 +5,117 @@
     z-index: 9999;
 }
 
-.pass-btn,
-.connect-btn {
+/* -------------------------------------------------------------------------- */
+/*                               Common Button                                */
+/* -------------------------------------------------------------------------- */
+
+.action-btn {
     position: fixed;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+
+    width: 82px;
+    height: 82px;
+
     border: none;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
     pointer-events: auto;
+
+    transition: all 0.25s ease;
 }
+
+.action-btn svg {
+    width: 28px;
+    height: 28px;
+}
+
+.action-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Pass Button                                 */
+/* -------------------------------------------------------------------------- */
 
 .pass-btn {
     left: 40px;
     bottom: 40px;
-    background: red;
+
+    background: linear-gradient(135deg, #ff4d6d, #ff1744);
+
+    box-shadow: 0 10px 35px rgba(255, 77, 109, 0.35);
 }
+
+.pass-btn:hover {
+    box-shadow: 0 15px 45px rgba(255, 77, 109, 0.55);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              Connect Button                                */
+/* -------------------------------------------------------------------------- */
 
 .connect-btn {
     right: 40px;
     bottom: 40px;
-    background: lime;
+
+    background: linear-gradient(135deg, #00d084, #00b894);
+
+    box-shadow: 0 10px 35px rgba(0, 208, 132, 0.35);
+}
+
+.connect-btn:hover {
+    box-shadow: 0 15px 45px rgba(0, 208, 132, 0.55);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Disabled                                   */
+/* -------------------------------------------------------------------------- */
+
+.action-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Mobile                                     */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .action-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 12px;
+    }
+
+    .action-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .pass-btn {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .connect-btn {
+        right: 20px;
+        bottom: 20px;
+    }
 }

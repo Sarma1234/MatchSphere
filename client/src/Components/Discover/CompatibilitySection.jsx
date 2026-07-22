@@ -1,33 +1,94 @@
-export default function PurposeSection() {
-  return (
-    <section className="discover-section glass">
 
-      <h2>Purpose Details</h2>
+export default function CompatibilitySection({
 
-      <div className="purpose-grid">
+    compatibility = 0,
 
-        <div className="purpose-card">
-          <h4>Purpose</h4>
-          <p>Hackathon Partner</p>
-        </div>
+}) {
 
-        <div className="purpose-card">
-          <h4>Role</h4>
-          <p>Frontend Developer</p>
-        </div>
+    const getTitle = () => {
 
-        <div className="purpose-card">
-          <h4>Experience</h4>
-          <p>2+ Years</p>
-        </div>
+        if (compatibility >= 90)
+            return "Excellent Match";
 
-        <div className="purpose-card">
-          <h4>Availability</h4>
-          <p>Weekends</p>
-        </div>
+        if (compatibility >= 75)
+            return "Great Match";
 
-      </div>
+        if (compatibility >= 60)
+            return "Good Match";
 
-    </section>
-  );
+        return "Potential Match";
+
+    };
+
+    return (
+
+        <section className="discover-section glass">
+
+            <h2>
+
+                Compatibility
+
+            </h2>
+
+            <div className="compatibility-card">
+
+                <div className="compatibility-circle">
+
+                    {compatibility}%
+
+                </div>
+
+                <div className="compatibility-info">
+
+                    <h3>
+
+                        {getTitle()}
+
+                    </h3>
+
+                    <p>
+
+                        This compatibility score is calculated using your
+                        shared skills, interests, location, active purpose,
+                        and purpose-specific preferences.
+
+                    </p>
+
+                    <div className="compatibility-tags">
+
+                        <span className="compatibility-tag">
+
+                            Skills
+
+                        </span>
+
+                        <span className="compatibility-tag">
+
+                            Interests
+
+                        </span>
+
+                        <span className="compatibility-tag">
+
+                            Purpose
+
+                        </span>
+
+                        <span className="compatibility-tag">
+
+                            Location
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    );
+
 }
+

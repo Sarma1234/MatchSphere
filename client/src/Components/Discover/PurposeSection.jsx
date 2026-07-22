@@ -1,33 +1,95 @@
-export default function PurposeSection() {
-  return (
-    <section className="discover-section glass">
 
-      <h2>Purpose Details</h2>
+export default function PurposeSection({ profile }) {
 
-      <div className="purpose-grid">
+    const purpose =
+        profile?.activePurpose
+            ?.replace(/_/g, " ")
+            ?.replace(/\b\w/g, char => char.toUpperCase());
 
-        <div className="purpose-card">
-          <h4>Purpose</h4>
-          <p>Hackathon Partner</p>
-        </div>
+    const purposeAnswers =
+        profile?.purposeAnswers || {};
 
-        <div className="purpose-card">
-          <h4>Role</h4>
-          <p>Frontend Developer</p>
-        </div>
+    return (
 
-        <div className="purpose-card">
-          <h4>Experience</h4>
-          <p>2+ Years</p>
-        </div>
+        <section className="discover-section glass">
 
-        <div className="purpose-card">
-          <h4>Availability</h4>
-          <p>Weekends</p>
-        </div>
+            <h2>
 
-      </div>
+                {purpose || "Purpose"}
 
-    </section>
-  );
+            </h2>
+
+            <div className="purpose-grid">
+
+                {Object.keys(purposeAnswers).length > 0 ? (
+
+                    Object.entries(purposeAnswers).map(
+
+                        ([key, value]) => (
+
+                            <div
+
+                                key={key}
+
+                                className="purpose-card"
+
+                            >
+
+                                <h4>
+
+                                    {key
+
+                                        .replace(/_/g, " ")
+
+                                        .replace(
+
+                                            /\b\w/g,
+
+                                            char => char.toUpperCase()
+
+                                        )}
+
+                                </h4>
+
+                                <p>
+
+                                    {Array.isArray(value)
+
+                                        ? value.join(", ")
+
+                                        : value === null ||
+
+                                          value === undefined ||
+
+                                          value === ""
+
+                                        ? "Not specified"
+
+                                        : String(value)}
+
+                                </p>
+
+                            </div>
+
+                        )
+
+                    )
+
+                ) : (
+
+                    <p className="empty-text">
+
+                        No purpose details available.
+
+                    </p>
+
+                )}
+
+            </div>
+
+        </section>
+
+    );
+
 }
+

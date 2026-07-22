@@ -18,7 +18,7 @@ class AuthService {
 
         if (existingUsername) {
             throw new ApiError(409, "Username already taken");
-        }
+        } 
 
         const user = await userRepository.create(userData);
 

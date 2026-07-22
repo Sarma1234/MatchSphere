@@ -6,8 +6,18 @@ import {
     Send
 } from "lucide-react";
 
-export default function ConnectionsHeader() {
+export default function ConnectionsHeader({
+
+    totalMatches = 0,
+
+    totalRequests = 0,
+
+    totalSent = 0,
+
+}) {
+
     return (
+
         <section className="connections-header">
 
             <div className="connections-header-left">
@@ -32,10 +42,12 @@ export default function ConnectionsHeader() {
                 <div className="stat-card">
 
                     <div className="stat-icon">
+
                         <Users size={22} />
+
                     </div>
 
-                    <h3>24</h3>
+                    <h3>{totalRequests}</h3>
 
                     <span>Requests</span>
 
@@ -44,10 +56,12 @@ export default function ConnectionsHeader() {
                 <div className="stat-card">
 
                     <div className="stat-icon">
+
                         <Send size={22} />
+
                     </div>
 
-                    <h3>11</h3>
+                    <h3>{totalSent}</h3>
 
                     <span>Sent</span>
 
@@ -56,10 +70,12 @@ export default function ConnectionsHeader() {
                 <div className="stat-card">
 
                     <div className="stat-icon">
+
                         <UserCheck size={22} />
+
                     </div>
 
-                    <h3>18</h3>
+                    <h3>{totalMatches}</h3>
 
                     <span>Matches</span>
 
@@ -68,5 +84,7 @@ export default function ConnectionsHeader() {
             </div>
 
         </section>
+
     );
+
 }

@@ -1,43 +1,94 @@
+
 import "./ProfileHero.css";
 import { MapPin, BadgeCheck } from "lucide-react";
 
-export default function ProfileHero() {
-  return (
-    <section className="profile-hero glass">
+export default function ProfileHero({ profile }) {
 
-      <div className="profile-image">
+    const profileImage =
+        profile?.photos?.find(photo => photo.isPrimary)?.url ||
+        profile?.photos?.[0]?.url ||
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900";
 
-        <img
-          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900"
-          alt="Profile"
-        />
+    const location = [
 
-        <div className="match-badge">
-          <BadgeCheck size={18} />
-          <span>94% Match</span>
-        </div>
+        profile?.location?.city,
 
-      </div>
+        profile?.location?.country,
 
-      <div className="profile-info">
+    ]
+        .filter(Boolean)
+        .join(", ");
 
-        <h1>Vikash Kumar</h1>
+    const purpose =
+        profile?.activePurpose
+            ?.replace(/_/g, " ")
+            ?.replace(/\b\w/g, char => char.toUpperCase());
 
-        <p className="purpose-tag">
-          Hackathon Partner
-        </p>
+    return (
 
-        <div className="location">
-          <MapPin size={18} />
-          <span>Bengaluru, India</span>
-        </div>
+        <section className="profile-hero glass">
 
-        <p className="scroll-text">
-          ↓ Scroll to explore profile
-        </p>
+            <div className="profile-image">
 
-      </div>
+                <img
 
-    </section>
-  );
+                    src={profileImage}
+
+                    alt={profile?.fullName || "Profile"}
+
+                />
+
+                <div className="match-badge">
+
+                    <BadgeCheck size={18} />
+
+                    <span>
+
+                        {profile?.compatibility ?? 0}% Match
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div className="profile-info">
+
+                <h1>
+
+                    {profile?.fullName || "Unknown User"}
+
+                </h1>
+
+                <p className="purpose-tag">
+
+                    {purpose || "No Purpose Selected"}
+
+                </p>
+
+                <div className="location">
+
+                    <MapPin size={18} />
+
+                    <span>
+
+                        {location || "Location not specified"}
+
+                    </span>
+
+                </div>
+
+                <p className="scroll-text">
+
+                    ↓ Scroll to explore profile
+
+                </p>
+
+            </div>
+
+        </section>
+
+    );
+
 }
+

@@ -1,0 +1,278 @@
+/* ========================================================================== */
+/*                               DEFAULT THEME                                */
+/* ========================================================================== */
+
+:root {
+
+    /* ---------------------------------------------------------------------- */
+    /* Backgrounds                                                             */
+    /* ---------------------------------------------------------------------- */
+
+    --background: #070B16;
+
+    --surface: #111827;
+
+    --surface-light: #1E293B;
+
+    --bg-primary: var(--background);
+
+    --bg-secondary: #10152F;
+
+    --bg-tertiary: #171F36;
+
+    /* ---------------------------------------------------------------------- */
+    /* Text                                                                    */
+    /* ---------------------------------------------------------------------- */
+
+    --text-primary: #FFFFFF;
+
+    --text-secondary: #9CA3AF;
+
+    --text-muted: #9AA1C9;
+
+    --text-light: rgba(255,255,255,.72);
+
+    /* ---------------------------------------------------------------------- */
+    /* Accent                                                                  */
+    /* ---------------------------------------------------------------------- */
+
+    --primary: #7C3AED;
+
+    --primary-light: #A855F7;
+
+    --accent-primary: var(--primary);
+
+    --accent-secondary: var(--primary-light);
+
+    --accent-primary-rgb: 124,58,237;
+
+    /* ---------------------------------------------------------------------- */
+    /* Status Colors                                                           */
+    /* ---------------------------------------------------------------------- */
+
+    --success: #5CEBD0;
+
+    --warning: #FBBF24;
+
+    --danger: #FF5F6D;
+
+    /* ---------------------------------------------------------------------- */
+    /* Borders                                                                 */
+    /* ---------------------------------------------------------------------- */
+
+    --border: rgba(255,255,255,.08);
+
+    --glass-border: rgba(255,255,255,.12);
+
+    --glass-border-hover: rgba(255,255,255,.18);
+
+    /* ---------------------------------------------------------------------- */
+    /* Glass Backgrounds                                                       */
+    /* ---------------------------------------------------------------------- */
+
+    --glass-bg: rgba(255,255,255,.06);
+
+    --glass-bg-hover: rgba(255,255,255,.08);
+
+    --glass-bg-strong: rgba(255,255,255,.12);
+
+    /* ---------------------------------------------------------------------- */
+    /* Shadows                                                                 */
+    /* ---------------------------------------------------------------------- */
+
+    --card-shadow:
+        0 18px 45px rgba(0,0,0,.30);
+
+    --card-shadow-lg:
+        0 25px 60px rgba(0,0,0,.38);
+
+    --shadow-hover:
+        0 24px 60px rgba(124,58,237,.18);
+
+    /* ---------------------------------------------------------------------- */
+    /* Glow                                                                    */
+    /* ---------------------------------------------------------------------- */
+
+    --glow-color: rgba(124,58,237,.45);
+
+    --glow-intensity: 70;
+
+    --shadow:
+        0 0 calc(var(--glow-intensity) * .6px)
+        var(--glow-color);
+
+    /* ---------------------------------------------------------------------- */
+    /* Radius                                                                  */
+    /* ---------------------------------------------------------------------- */
+
+    --radius-sm: 14px;
+
+    --radius-md: 18px;
+
+    --radius-lg: 24px;
+
+    --radius-xl: 30px;
+
+    /* ---------------------------------------------------------------------- */
+    /* Blur                                                                    */
+    /* ---------------------------------------------------------------------- */
+
+    --blur: blur(20px);
+
+    /* ---------------------------------------------------------------------- */
+    /* Gradients                                                               */
+    /* ---------------------------------------------------------------------- */
+
+    --gradient-primary:
+        linear-gradient(
+            135deg,
+            var(--accent-primary),
+            var(--accent-secondary)
+        );
+
+    --gradient-surface:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.03)
+        );
+
+}
+
+/* ========================================================================== */
+/*                               MIDNIGHT THEME                               */
+/* ========================================================================== */
+
+:root[data-theme="midnight"] {
+
+    --background:#020617;
+
+    --surface:#08233F;
+
+    --surface-light:#10385E;
+
+    --bg-primary:var(--background);
+
+    --bg-secondary:#061B33;
+
+    --bg-tertiary:#0D3050;
+
+    --text-primary:#F8FAFC;
+
+    --text-secondary:#C8DAEF;
+
+    --text-muted:#B8CFE6;
+
+    --text-light:rgba(248,250,252,.78);
+
+    --success:#5CEBD0;
+
+    --warning:#FFD166;
+
+    --danger:#FF6B81;
+
+    --border:rgba(0,207,255,.18);
+
+    --glass-border:rgba(0,207,255,.22);
+
+    --glass-border-hover:rgba(0,207,255,.35);
+
+    --glass-bg:rgba(255,255,255,.05);
+
+    --glass-bg-hover:rgba(255,255,255,.08);
+
+    --glass-bg-strong:rgba(255,255,255,.10);
+
+    --card-shadow:
+        0 18px 45px rgba(0,0,0,.38);
+
+    --card-shadow-lg:
+        0 30px 70px rgba(0,0,0,.45);
+
+    --shadow-hover:
+        0 22px 55px rgba(0,207,255,.18);
+
+    --glow-color:rgba(0,207,255,.50);
+
+    --gradient-primary:
+        linear-gradient(
+            135deg,
+            var(--accent-primary),
+            var(--accent-secondary)
+        );
+
+}
+
+/* ========================================================================== */
+/*                              ACCENT COLORS                                 */
+/* ========================================================================== */
+
+:root[data-accent="purple"]{
+
+    --primary:#7C3AED;
+    --primary-light:#A855F7;
+    --accent-primary:var(--primary);
+    --accent-secondary:var(--primary-light);
+    --accent-primary-rgb:124,58,237;
+
+}
+
+:root[data-accent="blue"]{
+
+    --primary:#3B82F6;
+    --primary-light:#60A5FA;
+    --accent-primary:var(--primary);
+    --accent-secondary:var(--primary-light);
+    --accent-primary-rgb:59,130,246;
+
+}
+
+:root[data-accent="cyan"]{
+
+    --primary:#06B6D4;
+    --primary-light:#67E8F9;
+    --accent-primary:var(--primary);
+    --accent-secondary:var(--primary-light);
+    --accent-primary-rgb:6,182,212;
+
+}
+
+:root[data-accent="pink"]{
+
+    --primary:#EC4899;
+    --primary-light:#F472B6;
+    --accent-primary:var(--primary);
+    --accent-secondary:var(--primary-light);
+    --accent-primary-rgb:236,72,153;
+
+}
+
+:root[data-accent="emerald"]{
+
+    --primary:#10B981;
+    --primary-light:#34D399;
+    --accent-primary:var(--primary);
+    --accent-secondary:var(--primary-light);
+    --accent-primary-rgb:16,185,129;
+
+}
+
+/* ========================================================================== */
+/*                              ACCESSIBILITY                                 */
+/* ========================================================================== */
+
+.compact-mode{
+
+    --spacing:.75rem;
+
+}
+
+.disable-animations *,
+.disable-animations *::before,
+.disable-animations *::after{
+
+    animation:none !important;
+
+    transition:none !important;
+
+}

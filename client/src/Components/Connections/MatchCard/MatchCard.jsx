@@ -8,8 +8,35 @@ import {
     UserRound
 } from "lucide-react";
 
-export default function MatchCard() {
+import { useNavigate } from "react-router-dom";
+
+export default function MatchCard({ match }) {
+
+    const navigate = useNavigate();
+
+    const currentUserId = localStorage.getItem("userId");
+
+    const user =
+        match.userOne._id === currentUserId
+            ? match.userTwo
+            : match.userOne;
+
+    const profilePhoto =
+        user.photos?.find((photo) => photo.isPrimary)?.url ||
+        user.photos?.[0]?.url ||
+        `https://ui-avatars.com/api/?name=${encodeURIComponent(user.fullName)}`;
+
+    const connectedDate = new Date(match.matchedAt).toLocaleDateString(
+        "en-IN",
+        {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+        }
+    );
+
     return (
+
         <article className="match-card">
 
             <div className="match-left">
@@ -17,11 +44,13 @@ export default function MatchCard() {
                 <div className="match-avatar">
 
                     <img
-                        src="https://i.pravatar.cc/300?img=32"
-                        alt="Profile"
+                        src={profilePhoto}
+                        alt={user.fullName}
                     />
 
-                    <span className="online-dot"></span>
+                    {user.isOnline && (
+                        <span className="online-dot"></span>
+                    )}
 
                 </div>
 
@@ -29,7 +58,7 @@ export default function MatchCard() {
 
                     <div className="match-top">
 
-                        <h2>Priya Sharma</h2>
+                        <h2>{user.fullName}</h2>
 
                         <span className="connected-badge">
                             Connected
@@ -38,46 +67,80 @@ export default function MatchCard() {
                     </div>
 
                     <span className="purpose-badge">
-                        Startup Co-founder
+                        {match.purpose}
                     </span>
 
                     <div className="match-meta">
 
-                        <span>
-                            <MapPin size={15} />
-                            Bangalore
-                        </span>
+                        {user.location?.city && (
 
-                        <span>
-                            <GraduationCap size={15} />
-                            Software Engineer
-                        </span>
+                            <span>
+
+                                <MapPin size={15} />
+
+                                {user.location.city}
+
+                            </span>
+
+                        )}
+
+                        {user.profession && (
+
+                            <span>
+
+                                <GraduationCap size={15} />
+
+                                {user.profession}
+
+                            </span>
+
+                        )}
 
                     </div>
 
                     <p className="match-bio">
-                        Building AI products and looking for passionate
-                        founders interested in solving real-world problems.
+
+                        {user.bio || "No bio added yet."}
+
                     </p>
+<div className="match-skills">
 
-                    <div className="match-skills">
+    {user.skills?.length ? (
 
-                        <span>React</span>
-                        <span>Python</span>
-                        <span>AI</span>
-                        <span>Startup</span>
+        user.skills.slice(0, 4).map((skill, index) => (
 
-                    </div>
+            <span
+                key={skill._id || skill.name || index}
+            >
+                {skill.name}
+            </span>
+
+        ))
+
+    ) : (
+
+        <span>No skills added</span>
+
+    )}
+
+</div>
 
                     <div className="match-status">
 
                         <span>
+
                             <Clock3 size={16} />
-                            Connected 2 days ago
+
+                            Connected {connectedDate}
+
                         </span>
 
                         <span>
-                            Last active 5 min ago
+
+                            {user.isOnline
+                                ? "Online"
+                                : "Offline"}
+
                         </span>
 
                     </div>
@@ -88,18 +151,34 @@ export default function MatchCard() {
 
             <div className="match-actions">
 
-                <button className="message-btn">
+                <button
+                    className="message-btn"
+                    onClick={() => navigate("/chats")}
+                >
+
                     <MessageCircle size={18} />
+
                     Message
+
                 </button>
 
-                <button className="profile-btn">
+                <button
+                    className="profile-btn"
+                    onClick={() =>
+                        navigate(`/profile/${user._id}`)
+                    }
+                >
+
                     <UserRound size={18} />
+
                     View Profile
+
                 </button>
 
             </div>
 
         </article>
+
     );
+
 }

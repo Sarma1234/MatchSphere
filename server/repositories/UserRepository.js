@@ -115,7 +115,136 @@ class UserRepository {
         );
 
     }
+    async updateLastSeen(userId) {
 
+    return await User.findByIdAndUpdate(
+
+        userId,
+
+        {
+            lastSeen: new Date(),
+        }
+
+    );
+
+}
+    /* ---------------------------------------------------------------------- */
+/*                           Settings Methods                             */
+/* ---------------------------------------------------------------------- */
+
+async getSettings(userId) {
+
+    return await User.findById(userId)
+        .select("settings");
+
+}
+
+async updateAppearance(userId, appearance) {
+
+    console.log("Repository Appearance:", appearance);
+
+    return await User.findByIdAndUpdate(
+        userId,
+        {
+            $set: {
+                "settings.appearance": appearance,
+            },
+        },
+        {
+            new: true,
+            runValidators: true,
+        }
+    );
+
+}
+
+async updateNotifications(userId, notifications) {
+
+    return await User.findByIdAndUpdate(
+
+        userId,
+
+        {
+            "settings.notifications": notifications,
+        },
+
+        {
+            new: true,
+            runValidators: true,
+        }
+
+    );
+
+}
+
+async updateSecurity(userId, security) {
+
+    return await User.findByIdAndUpdate(
+
+        userId,
+
+        {
+            "settings.security": security,
+        },
+
+        {
+            new: true,
+            runValidators: true,
+        }
+
+    );
+
+}
+
+async findByIdWithPassword(userId) {
+
+    return await User
+        .findById(userId)
+        .select("+password");
+
+}
+
+async deleteUser(userId) {
+
+    return await User.findByIdAndDelete(userId);
+
+}
+
+async existsByEmail(email, excludeUserId = null) {
+
+    const query = {
+        email,
+    };
+
+    if (excludeUserId) {
+
+        query._id = {
+            $ne: excludeUserId,
+        };
+
+    }
+
+    return await User.exists(query);
+
+}
+
+async existsByUsername(username, excludeUserId = null) {
+
+    const query = {
+        username,
+    };
+
+    if (excludeUserId) {
+
+        query._id = {
+            $ne: excludeUserId,
+        };
+
+    }
+
+    return await User.exists(query);
+
+}
 }
 
 module.exports = new UserRepository();

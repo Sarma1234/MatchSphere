@@ -1,46 +1,61 @@
-.connections-page
-{
+.connections-page {
+
     min-height: 100vh;
 
     padding: 120px 7% 80px;
 
-    background: #0A0D24;
+    background: var(--background);
+
+    color: var(--text-primary);
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+
 }
 
-.connections-container
-{
+.connections-container {
+
     max-width: 1350px;
 
     margin: 0 auto;
 
     display: flex;
+
     flex-direction: column;
 
     gap: 28px;
+
 }
 
-.connections-list
-{
+.connections-list {
+
     display: flex;
+
     flex-direction: column;
 
     gap: 22px;
+
 }
 
-@media (max-width:768px)
-{
-    .connections-page
-    {
+@media (max-width:768px) {
+
+    .connections-page {
+
         padding: 100px 20px 40px;
+
     }
 
-    .connections-container
-    {
+    .connections-container {
+
         gap: 22px;
+
     }
 
-    .connections-list
-    {
+    .connections-list {
+
         gap: 18px;
+
     }
+
 }

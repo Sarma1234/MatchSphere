@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const MATCH_PURPOSES = require("../constants/matchPurpose");
+
 
 const swipeSchema = new mongoose.Schema(
     {
@@ -20,11 +22,14 @@ const swipeSchema = new mongoose.Schema(
 
         /* --------------------------- Purpose ---------------------------- */
 
-        purpose: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Purpose",
-            required: true,
-        },
+       
+
+
+purpose: {
+    type: String,
+    enum: Object.values(MATCH_PURPOSES),
+    required: true,
+},
 
         /* ---------------------------- Action ---------------------------- */
 

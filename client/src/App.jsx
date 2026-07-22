@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { getMyProfile } from "./services/userService";
+import { applyAppearance } from "./utils/theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,6 +22,31 @@ import Settings from "./pages/Settings/Settings";
 import Connections from "./pages/Connections/Connections";
 
 function App() {
+    useEffect(() => {
+
+    const loadAppearance = async () => {
+
+        try {
+
+            const response = await getMyProfile();
+
+            applyAppearance(
+                response.data.appearance
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+        }
+
+    };
+
+    loadAppearance();
+
+}, []);
 
     return (
 

@@ -1,29 +1,56 @@
-export default function SkillsSection() {
-  const skills = [
-    "React",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "JavaScript",
-    "Git",
-    "UI/UX",
-    "Problem Solving",
-  ];
 
-  return (
-    <section className="discover-section glass">
-      <h2>Skills</h2>
+export default function SkillsSection({ skills = [] }) {
 
-      <div className="skills-grid">
-        {skills.map((skill) => (
-          <span
-            key={skill}
-            className="skill-chip"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-    </section>
-  );
+    return (
+
+        <section className="discover-section glass">
+
+            <h2>Skills</h2>
+
+            <div className="skills-grid">
+
+                {skills.length > 0 ? (
+
+                    skills.map((skill, index) => {
+
+                        const skillName =
+                            typeof skill === "string"
+                                ? skill
+                                : skill?.name;
+
+                        return (
+
+                            <span
+
+                                key={`${skillName}-${index}`}
+
+                                className="skill-chip"
+
+                            >
+
+                                {skillName}
+
+                            </span>
+
+                        );
+
+                    })
+
+                ) : (
+
+                    <p className="empty-text">
+
+                        No skills added yet.
+
+                    </p>
+
+                )}
+
+            </div>
+
+        </section>
+
+    );
+
 }
+

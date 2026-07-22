@@ -1,6 +1,6 @@
 .chats-page {
     min-height: 100vh;
-    background: #0A0D24;
+    background: var(--background);
     padding: 32px;
     overflow: hidden;
 }
@@ -105,7 +105,7 @@
     font-family: "Space Grotesk", sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--text-primary);
 }
 
 .chat-sidebar-header p {
@@ -161,7 +161,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     outline: none;
-    color: #ffffff;
+    color: var(--text-primary);
     font-family: "Inter", sans-serif;
     font-size: 0.95rem;
     transition:
@@ -183,7 +183,7 @@
 }
 
 .chat-search:focus-within .chat-search-icon {
-    color: #7C9CFF;
+    color: VAR(--PRIMARY);
 }
 
 @media (max-width: 768px) {
@@ -279,7 +279,7 @@
 
 .chat-top-row h4 {
     margin: 0;
-    color: #ffffff;
+    color: var(--text-primary);
     font-family: "Space Grotesk", sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -301,7 +301,7 @@
     border-radius: 999px;
     background: rgba(92, 235, 208, 0.12);
     border: 1px solid rgba(92, 235, 208, 0.18);
-    color: #5CEBD0;
+    color: VAR(--PRIMARY-LIGHT);
     font-size: 0.72rem;
     font-weight: 600;
 }
@@ -316,7 +316,7 @@
 .chat-bottom-row p {
     flex: 1;
     margin: 0;
-    color: rgba(255,255,255,0.65);
+    color: var(--text-secondary);
     font-size: 0.9rem;
     white-space: nowrap;
     overflow: hidden;
@@ -330,13 +330,13 @@
     border-radius: 50%;
     background: linear-gradient(
         135deg,
-        #7C9CFF,
-        #5CEBD0
+        VAR(--PRIMARY),
+        VAR(--PRIMARY-LIGHT)
     );
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0A0D24;
+    color: var(--background);
     font-size: 0.75rem;
     font-weight: 700;
     box-shadow:
@@ -354,11 +354,11 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 3px solid #0A0D24;
+    border: 3px solid var(--background);
 }
 
 .online-status.online {
-    background: #5CEBD0;
+    background: VAR(--PRIMARY-LIGHT);
     box-shadow:
         0 0 12px rgba(92, 235, 208, 0.9),
         0 0 24px rgba(92, 235, 208, 0.45);
@@ -390,11 +390,11 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 3px solid #0A0D24;
+    border: 3px solid var(--background);
 }
 
 .online-status.online {
-    background: #5CEBD0;
+    background: VAR(--PRIMARY-LIGHT);
     box-shadow:
         0 0 12px rgba(92, 235, 208, 0.9),
         0 0 24px rgba(92, 235, 208, 0.45);
@@ -490,7 +490,7 @@
 
 .chat-header-info h3 {
     margin: 0;
-    color: #ffffff;
+    color: var(--text-primary);
     font-family: "Space Grotesk", sans-serif;
     font-size: 1.3rem;
     font-weight: 700;
@@ -503,7 +503,7 @@
     border-radius: 999px;
     background: rgba(92, 235, 208, 0.12);
     border: 1px solid rgba(92, 235, 208, 0.2);
-    color: #5CEBD0;
+    color: VAR(--PRIMARY-LIGHT);
     font-size: 0.8rem;
     font-weight: 600;
 }
@@ -526,7 +526,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -599,7 +599,7 @@
 }
 
 .message-list::-webkit-scrollbar-thumb:hover {
-    background: rgba(124,156,255,0.45);
+    background: color-mix(in srgb, var(--primary) 45%, transparent);
 }
 
 .message-date {
@@ -609,7 +609,7 @@
     border-radius: 999px;
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.65);
+    color: var(--text-secondary);
     font-size: 0.82rem;
     font-weight: 600;
     backdrop-filter: blur(12px);
@@ -655,8 +655,8 @@
 .message-bubble.mine {
     background: linear-gradient(
         135deg,
-        #7C9CFF,
-        #5CEBD0
+        VAR(--PRIMARY),
+        VAR(--PRIMARY-LIGHT)
     );
     color: #08101f;
     border-bottom-right-radius: 8px;
@@ -668,7 +668,7 @@
     background: rgba(255,255,255,0.06);
     backdrop-filter: blur(18px);
     border: 1px solid rgba(255,255,255,0.08);
-    color: #ffffff;
+    color: var(--text-primary);
     border-bottom-left-radius: 8px;
 }
 
@@ -737,7 +737,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #5CEBD0;
+    background: VAR(--PRIMARY-LIGHT);
     animation: typingBounce 1.2s infinite ease-in-out;
 }
 
@@ -825,7 +825,7 @@
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.06);
     outline: none;
-    color: #ffffff;
+    color: var(--text-primary);
     font-family: "Inter", sans-serif;
     font-size: 0.95rem;
     transition:
@@ -853,8 +853,8 @@
     border-radius: 18px;
     background: linear-gradient(
         135deg,
-        #7C9CFF,
-        #5CEBD0
+        VAR(--PRIMARY),
+        VAR(--PRIMARY-LIGHT)
     );
     color: #08101F;
     font-family: "Space Grotesk", sans-serif;
@@ -947,14 +947,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #7C9CFF;
+    color: VAR(--PRIMARY);
     box-shadow:
         0 0 40px rgba(124, 156, 255, 0.18);
 }
 
 .empty-chat h2 {
     margin: 0;
-    color: #ffffff;
+    color: var(--text-primary);
     font-family: "Space Grotesk", sans-serif;
     font-size: 2rem;
     font-weight: 700;

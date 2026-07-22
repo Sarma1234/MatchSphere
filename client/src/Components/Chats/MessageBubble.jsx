@@ -1,37 +1,97 @@
-export default function MessageBubble({ message }) {
+import { useEffect, useState } from "react";
 
-    const isMine = message.sender === "me";
+import MessageBubble from "./MessageBubble";
 
-    return (
-        <div
-            className={`message-row ${isMine ? "mine" : "other"}`}
-        >
+import { getMessages } from "../../services/chatService";
 
-            <div
-                className={`message-bubble ${isMine ? "mine" : "other"}`}
-            >
+export default function MessageList({ chat }) {
 
-                <p className="message-text">
-                    {message.text}
-                </p>
+    const [messages, setMessages] = useState([]);
 
-                <div className="message-footer">
+    const [loading, setLoading] = useState(true);
 
-                    <span className="message-time">
-                        {message.time}
-                    </span>
+    useEffect(() => {
 
-                    {isMine && (
-                        <span className="message-seen">
-                            ✓✓
-                        </span>
-                    )}
+        if (!chat) return;
 
-                </div>
+        loadMessages();
+
+    }, [chat]);
+
+    async function loadMessages() {
+
+        try {
+
+            setLoading(true);
+
+            const data = await getMessages(chat.conversationId);
+
+            setMessages(data.messages || []);
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+        }
+
+        finally {
+
+            setLoading(false);
+
+        }
+
+    }
+
+    if (loading) {
+
+        return (
+
+            <div className="message-list-loading">
+
+                Loading messages...
 
             </div>
 
+        );
+
+    }
+
+    if (!messages.length) {
+
+        return (
+
+            <div className="message-list-empty">
+
+                No messages yet. Start the conversation.
+
+            </div>
+
+        );
+
+    }
+
+    return (
+
+        <div className="message-list">
+
+            {messages.map((message) => (
+
+                <MessageBubble
+
+                    key={message._id}
+
+                    message={message}
+
+                    currentUserId={localStorage.getItem("userId")}
+
+                />
+
+            ))}
+
         </div>
+
     );
 
 }

@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const MATCH_PURPOSES = require("../constants/matchPurpose");
+
 const matchSchema = new mongoose.Schema(
     {
         /* ------------------------- Participants ------------------------- */
@@ -18,12 +20,14 @@ const matchSchema = new mongoose.Schema(
 
         /* --------------------------- Purpose --------------------------- */
 
-        purpose: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Purpose",
-            required: true,
-        },
+        
+// ...
 
+purpose: {
+    type: String,
+    enum: Object.values(MATCH_PURPOSES),
+    required: true,
+},
         /* -------------------- Matching Information --------------------- */
 
         compatibilityScore: {
@@ -35,17 +39,23 @@ const matchSchema = new mongoose.Schema(
 
         status: {
             type: String,
-            enum: ["matched", "unmatched", "blocked"],
-            default: "matched",
+            enum: [
+                "pending",
+                "matched",
+                "rejected",
+                "blocked",
+            ],
+            default: "pending",
+        },
+
+        initiatedBy: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
         },
 
         matchedAt: {
             type: Date,
-            default: Date.now,
-        },
-        initiatedBy: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
         },
     },
     {
@@ -57,7 +67,6 @@ const matchSchema = new mongoose.Schema(
 /*                                  Indexes                                   */
 /* -------------------------------------------------------------------------- */
 
-// Prevent duplicate matches
 matchSchema.index(
     {
         userOne: 1,
@@ -74,4 +83,7 @@ matchSchema.index({ userTwo: 1 });
 matchSchema.index({ purpose: 1 });
 matchSchema.index({ status: 1 });
 
-module.exports = mongoose.model("Match", matchSchema);
+module.exports = mongoose.model(
+    "Match",
+    matchSchema
+);
