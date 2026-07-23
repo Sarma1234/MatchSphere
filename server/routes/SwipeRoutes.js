@@ -1,7 +1,7 @@
 const express = require("express");
 
 const swipeController = require("../controllers/SwipeController");
-const protect = require("../middleware/authMiddleware");
+const protect = require("../middleware/auth");
 
 const router = express.Router();
 

@@ -6,106 +6,42 @@ const errorHandler = require("./middleware/errorHandler");
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const userRoutes = require("./routes/userRoutes");
-const chatRoutes = require("./routes/ChatRoutes");
+const swipeRoutes = require("./routes/swipeRoutes");
 const userPurposeRoutes = require("./routes/userPurposeRoutes");
-const matchRoutes = require("./routes/matchRoutes");
+
 const discoverRoutes = require("./routes/discoverRoutes");
 
 
 const app = express();
 
-
-/* -------------------------------------------------------------------------- */
-/*                              Middleware                                    */
-/* -------------------------------------------------------------------------- */
-
+// Middleware
 app.use(
-    cors()
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true,
+    })
 );
 
-app.use(
-    express.json()
-);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// Routes
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/profile", profileRoutes);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/swipes", swipeRoutes);
+app.use("/api/v1/user-purposes", userPurposeRoutes);
+app.use("/api/v1/discover", discoverRoutes);    
 
-/* -------------------------------------------------------------------------- */
-/*                               Health Check                                 */
-/* -------------------------------------------------------------------------- */
+// Health Check
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Server is running",
+    });
+});
 
-app.get(
-    "/",
-    (req,res)=>{
-
-        res.json({
-
-            success:true,
-
-            message:
-            "MatchSphere API is running 🚀"
-
-        });
-
-    }
-);
-
-
-
-/* -------------------------------------------------------------------------- */
-/*                                Routes                                      */
-/* -------------------------------------------------------------------------- */
-
-
-app.use(
-    "/api/v1/auth",
-    authRoutes
-);
-
-
-app.use(
-    "/api/v1/profile",
-    profileRoutes
-);
-
-
-app.use(
-    "/api/v1/users",
-    userRoutes
-);
-
-
-app.use(
-    "/api/v1/user-purposes",
-    userPurposeRoutes
-);
-app.use(
-    "/api/v1/discover",
-    discoverRoutes
-);
-
-app.use(
-    "/api/v1/chat",
-    chatRoutes
-);
-
-
-/* ------------------------------- Match ----------------------------------- */
-
-
-app.use(
-    "/api/v1/matches",
-    matchRoutes
-);
-
-
-
-/* -------------------------------------------------------------------------- */
-/*                           Error Handler                                   */
-/* -------------------------------------------------------------------------- */
-
-
-app.use(
-    errorHandler
-);
-
+// Error Handler (Always Last)
+app.use(errorHandler);
 
 module.exports = app;
